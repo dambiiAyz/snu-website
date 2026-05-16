@@ -1,0 +1,409 @@
+{
+  "language": {
+    "short": {
+      "en": "EN",
+      "mn": "MN",
+      "cz": "CZ"
+    },
+    "options": {
+      "en": "English (EN)",
+      "mn": "Mongol (MN)",
+      "cz": "China (CZ)"
+    }
+  },
+  "footer": {
+    "desc": "Бид өндөр чанартай WordPress бүтээдэг дизайнер, хөгжүүлэгчдийн баг.",
+    "myAccountTitle": "Миний бүртгэл",
+    "informationTitle": "Мэдээлэл",
+    "talkToUsTitle": "Холбоо барих",
+    "gotQuestions": "Асуулт байна уу? Бидэн рүү залгаарай",
+    "trackOrders": "Захиалга хянах",
+    "shipping": "Хүргэлт",
+    "wishlist": "Хүсэлтийн жагсаалт",
+    "myAccountLink": "Миний бүртгэл",
+    "orderHistory": "Захиалгын түүх",
+    "returns": "Буцаалт",
+    "ourStory": "Манай түүх",
+    "careers": "Ажлын байр",
+    "privacyPolicy": "Нууцлалын бодлого",
+    "termsConditions": "Үйлчилгээний нөхцөл",
+    "latestNews": "Сүүлчийн мэдээ",
+    "contactUs": "Бидэнтэй холбоо барих",
+    "subscribeTitle": "Бүртгүүлэх.",
+    "subscribeDesc": "Бидний яриа дөнгөж эхэлж байна",
+    "emailPlaceholder": "Имэйлээ оруулна уу",
+    "subscribeButton": "Бүртгүүлэх",
+    "followUsOn": "Биднийг дагаарай",
+    "copyright": "© {{year}} Бүх эрх хуулиар хамгаалагдсан | Snu Shop by {{by}} "
+  },
+  "errors": {
+    "generic": "Алдаа гарлаа",
+    "noProducts": "Бүтээгдэхүүн олдсонгүй!",
+    "noCategories": "Ангилал олдсонгүй!"
+  },
+  "home": {
+    "slider": {
+      "preTitle": "Эхлэх үнэ",
+      "title1": "2023 оны шилдэг таблет цуглуулга",
+      "title2": "2023 оны шилдэг ноутбук цуглуулга",
+      "title3": "2023 оны шилдэг ноутбук цуглуулга",
+      "subtitleText1": "Онцгой санал ",
+      "subtitleText2": "энэ долоо хоногт",
+      "shopNow": "Одоо худалдаж авах"
+    },
+    "banner": {
+      "saleAllStore": "Бүх бараанд 20% хямдрал",
+      "saleSmall": "35% хямдрал",
+      "shopNow": "Одоо худалдаж авах",
+      "item1Line1": "Ухаалаг утас 2222",
+      "item1Line2": "BLU G91 Pro 2022",
+      "item2Line1": "HyperX Cloud II",
+      "item2Line2": "Утасгүй"
+    },
+    "features": {
+      "deliveryTitle": "Үнэгүй хүргэлт",
+      "deliverySubtitle": "Бүх бараанд",
+      "refundTitle": "Буцаалт & Буцаан олголт",
+      "refundSubtitle": "Мөнгө буцаах баталгаа",
+      "discountTitle": "Гишүүний хөнгөлөлт",
+      "discountSubtitle": "₮140-аас дээш бүх захиалгад",
+      "supportTitle": "24/7 дэмжлэг",
+      "supportSubtitle": "Өдөрт 24 цаг холбоо барина"
+    },
+    "cta": {
+      "sale": "Бүх бараанд 20% хямдрал",
+      "title": "Манай мэдээний захиалга",
+      "emailPlaceholder": "Имэйлээ оруулна уу",
+      "subscribeButton": "Бүртгүүлэх"
+    },
+    "productArea": {
+      "trendingTitle": "Трэнд бүтээгдэхүүнүүд",
+      "tabs": {
+        "new": "Шинэ",
+        "featured": "Онцлох",
+        "topSellers": "Шилдэг борлуулалт"
+      }
+    },
+    "newArrivals": {
+      "title": "Шинээр ирсэн"
+    },
+    "offer": {
+      "title": "Өдрийн шилдэг санал",
+      "viewAll": "Бүх саналыг үзэх"
+    },
+    "productBanner": {
+      "bgText": "таблет",
+      "subtitle": "Таблет цуглуулга 2023",
+      "titleLine1": "Galaxy Tab S6 Lite",
+      "titleLine2": "Android таблет",
+      "shopNow": "Одоо худалдаж авах"
+    },
+    "gadget": {
+      "categoriesLine1": "Электроник",
+      "categoriesLine2": "Гаджет",
+      "moreProducts": "Илүү бүтээгдэхүүн",
+      "banner": {
+        "selectedLine1": "Сонгосон шинэ",
+        "selectedLine2": "Бүтээгдэхүүнүүд",
+        "topRatedLine1": "Өндөр үнэлгээтэй",
+        "topRatedLine2": "Бүтээгдэхүүнүүд",
+        "price": "Зөвхөн ₮{{price}}"
+      }
+    },
+    "productSm": {
+      "discountTitle": "Хямдралтай бүтээгдэхүүнүүд",
+      "featuredTitle": "Онцлох бүтээгдэхүүнүүд",
+      "sellingTitle": "Их борлуулалттай"
+    },
+    "categories": {
+      "productCount": "{{count}} бүтээгдэхүүн"
+    },
+    "blog": {
+      "title": "Сүүлийн мэдээ, нийтлэл",
+      "viewAll": "Бүх блогууд",
+      "readMore": "Дэлгэрэнгүй"
+    }
+  },
+  "breadcrumb": {
+    "home": "Нүүр",
+    "shopGrid": "Дэлгүүр",
+    "onlyCategories": "Зөвхөн ангиллууд",
+    "searchProducts": "Бүтээгдэхүүн хайх",
+    "shoppingCart": "Сагс",
+    "checkout": "Төлбөр хийх",
+    "wishlist": "Хүсэлтийн жагсаалт",
+    "compare": "Харьцуулах",
+    "contact": "Холбоо барих"
+  },
+  "shop": {
+    "sort": {
+      "default": "Анхны эрэмбэ",
+      "lowToHigh": "Багаас их рүү",
+      "highToLow": "Ихээс бага руу",
+      "newAdded": "Шинээр нэмэгдсэн",
+      "onSale": "Хямдралтай"
+    },
+    "filterButton": "Шүүлт",
+    "filter": {
+      "close": "Хаах"
+    },
+    "showing": "1–{{showing}} / {{total}} үр дүн",
+    "noProductsFound": "Бүтээгдэхүүн олдсонгүй",
+    "status": {
+      "title": "Бүтээгдэхүүний төлөв",
+      "onSale": "Хямдралтай",
+      "inStock": "Бэлэн"
+    },
+    "categories": {
+      "title": "Ангиллууд",
+      "count": "{{count}} бүтээгдэхүүн"
+    },
+    "colorFilter": {
+      "title": "Өнгөөр шүүх"
+    },
+    "priceFilter": {
+      "title": "Үнийн шүүлт",
+      "button": "Шүүх"
+    },
+    "brand": {
+      "title": "Алдартай брэндүүд",
+      "noBrands": "Брэнд олдсонгүй!"
+    },
+    "reset": {
+      "title": "Шүүлт цэвэрлэх",
+      "button": "Шүүлт цэвэрлэх"
+    },
+    "topRated": {
+      "title": "Өндөр үнэлгээтэй бүтээгдэхүүн"
+    }
+  },
+  "search": {
+    "sort": {
+      "default": "Үнээр эрэмбэлэх",
+      "lowToHigh": "Үнээр багаас их рүү",
+      "highToLow": "Үнээр ихээс бага руу"
+    },
+    "loadMore": "Илүү ачаалах",
+    "noMatchPrefix": "Уучлаарай, тохирох зүйл олдсонгүй",
+    "noMatchSuffix": "хайлтын үгс"
+  },
+  "cart": {
+    "emptyTitle": "Сагс хоосон байна",
+    "continueShopping": "Дэлгүүр хэсэх",
+    "table": {
+      "product": "Бүтээгдэхүүн",
+      "price": "Үнэ",
+      "quantity": "Тоо"
+    },
+    "clearCart": "Сагсыг цэвэрлэх",
+    "subtotal": "Дүн",
+    "shipping": "Хүргэлт",
+    "shippingOptions": {
+      "flatRate": "Тогтмол үнэ",
+      "localPickup": "Орон нутгийн авах",
+      "freeShipping": "Үнэгүй хүргэлт"
+    },
+    "total": "Нийт",
+    "proceedToCheckout": "Төлбөрт шилжих"
+  },
+  "wishlist": {
+    "emptyTitle": "Хүсэлтийн жагсаалт хоосон байна",
+    "continueShopping": "Дэлгүүр хэсэх",
+    "table": {
+      "product": "Бүтээгдэхүүн",
+      "price": "Үнэ",
+      "quantity": "Тоо",
+      "action": "Үйлдэл"
+    },
+    "goToCart": "Сагс руу"
+  },
+  "compare": {
+    "emptyTitle": "Харьцуулах зүйл алга",
+    "continueShopping": "Дэлгүүр хэсэх",
+    "table": {
+      "product": "Бүтээгдэхүүн",
+      "description": "Тайлбар",
+      "price": "Үнэ",
+      "addToCart": "Сагсанд нэмэх",
+      "rating": "Үнэлгээ",
+      "remove": "Устгах"
+    },
+    "descriptionPlaceholder": "Энд бүтээгдэхүүний тайлбар харагдана."
+  },
+  "checkout": {
+    "emptyTitle": "Төлбөр хийх бүтээгдэхүүн алга",
+    "returnToShop": "Дэлгүүр рүү буцах",
+    "login": {
+      "returningCustomer": "Буцааж ирсэн хэрэглэгч үү?",
+      "clickHere": "Нэвтрэх бол энд дарна уу"
+    },
+    "coupon": {
+      "haveCoupon": "Купон байна уу?",
+      "clickHere": "Кодоороо оруулах бол энд дарна уу",
+      "codeLabel": "Купоны код :",
+      "placeholder": "Купон",
+      "apply": "Идэвхжүүлэх"
+    },
+    "billing": {
+      "title": "Төлбөрийн мэдээлэл",
+      "firstName": "Нэр",
+      "lastName": "Овог",
+      "country": "Улс",
+      "address": "Гудамж, хаяг",
+      "city": "Хот",
+      "zip": "Шуудангийн код",
+      "phone": "Утас",
+      "email": "И-мэйл",
+      "orderNotes": "Захиалгын тэмдэглэл (заавал биш)",
+      "placeholders": {
+        "firstName": "Нэр",
+        "lastName": "Овог",
+        "country": "Монгол (MN)",
+        "address": "Гудамж, байрны дугаар",
+        "city": "Хот",
+        "zip": "Шуудангийн код",
+        "phone": "Утас",
+        "email": "И-мэйл",
+        "orderNotes": "Захиалгын тэмдэглэл, жишээ нь хүргэлтийн тусгай хүсэлт."
+      },
+      "errors": {
+        "firstName": "Нэр шаардлагатай!",
+        "lastName": "Овог шаардлагатай!",
+        "country": "Улс шаардлагатай!",
+        "address": "Хаяг шаардлагатай!",
+        "city": "Хот шаардлагатай!",
+        "zip": "Шуудангийн код шаардлагатай!",
+        "phone": "Утас шаардлагатай!",
+        "email": "И-мэйл шаардлагатай!"
+      }
+    },
+    "order": {
+      "title": "Таны захиалга",
+      "product": "Бүтээгдэхүүн",
+      "total": "Нийт",
+      "shipping": "Хүргэлт",
+      "shippingToday": "Хүргэлт: Өнөөдөр",
+      "shippingDays": "Хүргэлт: 7 хоногт",
+      "subtotal": "Дүн",
+      "shippingCost": "Хүргэлтийн үнэ",
+      "discount": "Хөнгөлөлт",
+      "payment": {
+        "card": "Карт",
+        "cod": "Хүргэлтийн төлбөр"
+      },
+      "placeOrder": "Захиалга өгөх",
+      "errors": {
+        "shipping": "Хүргэлтийн сонголт шаардлагатай!",
+        "payment": "Төлбөрийн сонголт шаардлагатай!"
+      }
+    }
+  },
+  "productDetails": {
+    "related": {
+      "preTitle": "Дараагийн өдрийн бүтээгдэхүүнүүд",
+      "title": "Холбоотой бүтээгдэхүүнүүд"
+    },
+    "tabs": {
+      "description": "Тайлбар",
+      "additionalInfo": "Нэмэлт мэдээлэл",
+      "reviews": "Сэтгэгдэл ({{count}})"
+    },
+    "reviews": {
+      "title": "Үнэлгээ ба сэтгэгдэл",
+      "empty": "Одоогоор сэтгэгдэл алга.",
+      "formTitle": "Энэ бүтээгдэхүүнд сэтгэгдэл үлдээх",
+      "note": "Таны имэйл нийтлэгдэхгүй. * тэмдэгтэй талбарууд заавал."
+    },
+    "info": {
+      "sku": "SKU",
+      "category": "Ангилал",
+      "tag": "Таг",
+      "share": "Хуваалцах",
+      "returns": "30 хоногийн буцаалт",
+      "dispatch": "Өдрийн 2:30-аас өмнө захиалбал өнөөдөр илгээнэ",
+      "safeCheckoutLine1": "Аюулгүй",
+      "safeCheckoutLine2": "& найдвартай төлбөр"
+    },
+    "seeMore": "Дэлгэрэнгүй",
+    "seeLess": "Хураах",
+    "color": "Өнгө",
+    "quantity": "Тоо хэмжээ",
+    "buyNow": "Одоо авах",
+    "askQuestion": "Асуулт асуух",
+    "flashSale": "Хямдрал дуусах хугацаа",
+    "reviewForm": {
+      "yourRating": "Таны үнэлгээ",
+      "labels": {
+        "comment": "Таны сэтгэгдэл",
+        "name": "Таны нэр",
+        "email": "Таны имэйл"
+      },
+      "placeholders": {
+        "comment": "Сэтгэгдлээ энд бичнэ үү...",
+        "name": "Таны нэр",
+        "email": "Таны имэйл"
+      },
+      "errors": {
+        "comment": "Сэтгэгдэл шаардлагатай!",
+        "name": "Нэр шаардлагатай!",
+        "email": "И-мэйл шаардлагатай!"
+      },
+      "submit": "Илгээх",
+      "pleaseLogin": "Эхлээд нэвтэрнэ үү"
+    }
+  },
+  "contact": {
+    "breadcrumbTitle": "Бидэнтэй холбоо барина уу",
+    "sendMessageTitle": "Зурвас илгээх",
+    "findOnSocial": "Сошиал дээрээс олоорой",
+    "form": {
+      "labels": {
+        "name": "Таны нэр",
+        "email": "Таны имэйл",
+        "subject": "Гарчиг",
+        "message": "Таны зурвас",
+        "remember": "Үйлчилгээний нөхцөл"
+      },
+      "placeholders": {
+        "name": "Таны нэр",
+        "email": "snueshop@gmail.com",
+        "subject": "Гарчгаа бичнэ үү",
+        "message": "Зурвасаа энд бичнэ үү..."
+      },
+      "errors": {
+        "name": "Нэр шаардлагатай!",
+        "email": "И-мэйл шаардлагатай!",
+        "subject": "Гарчиг шаардлагатай!",
+        "message": "Зурвас шаардлагатай!",
+        "remember": "Үйлчилгээний нөхцөлийг зөвшөөрнө үү."
+      },
+      "rememberText": "Дараагийн удаа коммент бичихэд миний нэр, имэйл, вэбсайтыг хадгал.",
+      "submit": "Зурвас илгээх",
+      "success": "Зурвас амжилттай илгээгдлээ!"
+    }
+  },
+  "product": {
+    "badge": {
+      "outOfStock": "Дууссан"
+    },
+    "actions": {
+      "viewCart": "Сагс харах",
+      "addToCart": "Сагсанд нэмэх",
+      "quickView": "Түр харах",
+      "addToWishlist": "Хүсэлтийн жагсаалтад нэмэх",
+      "addToCompare": "Харьцуулахад нэмэх",
+      "remove": "Устгах"
+    },
+    "status": {
+      "inStock": "Бэлэн",
+      "outOfStock": "Дууссан"
+    },
+    "review": "Сэтгэгдэл",
+    "timer": {
+      "day": "Өдөр",
+      "hours": "Цаг",
+      "minutes": "Мин",
+      "seconds": "Сек"
+    }
+  }
+}

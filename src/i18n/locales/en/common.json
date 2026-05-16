@@ -1,0 +1,409 @@
+{
+  "language": {
+    "short": {
+      "en": "EN",
+      "mn": "MN",
+      "cz": "CZ"
+    },
+    "options": {
+      "en": "English (EN)",
+      "mn": "Mongol (MN)",
+      "cz": "China (CZ)"
+    }
+  },
+  "footer": {
+    "desc": "We are a team of designers and developers that create high quality WordPress",
+    "myAccountTitle": "My Account",
+    "informationTitle": "Information",
+    "talkToUsTitle": "Talk To Us",
+    "gotQuestions": "Got Questions? Call us",
+    "trackOrders": "Track Orders",
+    "shipping": "Shipping",
+    "wishlist": "Wishlist",
+    "myAccountLink": "My Account",
+    "orderHistory": "Order History",
+    "returns": "Returns",
+    "ourStory": "Our Story",
+    "careers": "Careers",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "latestNews": "Latest News",
+    "contactUs": "Contact Us",
+    "subscribeTitle": "Subscribe.",
+    "subscribeDesc": "Our conversation is just getting started",
+    "emailPlaceholder": "Enter Your Email",
+    "subscribeButton": "Subscribe",
+    "followUsOn": "Follow Us On",
+    "copyright": "© {{year}} All Rights Reserved  | Snu Shop by {{by}} "
+  },
+  "errors": {
+    "generic": "There was an error",
+    "noProducts": "No Products found!",
+    "noCategories": "No Category found!"
+  },
+  "home": {
+    "slider": {
+      "preTitle": "Starting at",
+      "title1": "The best tablet Collection 2023",
+      "title2": "The best note book collection 2023",
+      "title3": "The best note book collection 2023",
+      "subtitleText1": "Exclusive offer ",
+      "subtitleText2": "off this week",
+      "shopNow": "Shop Now"
+    },
+    "banner": {
+      "saleAllStore": "Sale 20% off all store",
+      "saleSmall": "Sale 35% off",
+      "shopNow": "Shop Now",
+      "item1Line1": "Smartphone 7777",
+      "item1Line2": "BLU G91 Pro 2022",
+      "item2Line1": "HyperX Cloud II",
+      "item2Line2": "Wireless"
+    },
+    "features": {
+      "deliveryTitle": "Free Delivery",
+      "deliverySubtitle": "Orders from all item",
+      "refundTitle": "Return & Refund",
+      "refundSubtitle": "Money back guarantee",
+      "discountTitle": "Member Discount",
+      "discountSubtitle": "On every order over ₮140.00",
+      "supportTitle": "Support 24/7",
+      "supportSubtitle": "Contact us 24 hours a day"
+    },
+    "cta": {
+      "sale": "Sale 20% off all store",
+      "title": "Subscribe our Newsletter",
+      "emailPlaceholder": "Enter Your Email",
+      "subscribeButton": "Subscribe"
+    },
+    "productArea": {
+      "trendingTitle": "Trending Products",
+      "tabs": {
+        "new": "New",
+        "featured": "Featured",
+        "topSellers": "Top Sellers"
+      }
+    },
+    "newArrivals": {
+      "title": "New Arrivals"
+    },
+    "offer": {
+      "title": "Deal of The Day",
+      "viewAll": "View All Deals"
+    },
+    "productBanner": {
+      "bgText": "tablet",
+      "subtitle": "Tablet Collection 2023",
+      "titleLine1": "Galaxy Tab S6 Lite",
+      "titleLine2": "Android Tablet",
+      "shopNow": "Shop now"
+    },
+    "gadget": {
+      "categoriesLine1": "Electronics",
+      "categoriesLine2": "Gadgets",
+      "moreProducts": "More Products",
+      "banner": {
+        "selectedLine1": "Selected novelty",
+        "selectedLine2": "Products",
+        "topRatedLine1": "Top Rated",
+        "topRatedLine2": "Products",
+        "price": "Only ₮{{price}}"
+      }
+    },
+    "productSm": {
+      "discountTitle": "Discount Products",
+      "featuredTitle": "Featured Products",
+      "sellingTitle": "Selling Products"
+    },
+    "categories": {
+      "productCount": "{{count}} Product"
+    },
+    "blog": {
+      "title": "Latest news & articles",
+      "viewAll": "View All Blog",
+      "readMore": "Read More"
+    }
+  },
+  "breadcrumb": {
+    "home": "Home",
+    "shopGrid": "Shop Grid",
+    "onlyCategories": "Only Categories",
+    "searchProducts": "Search Products",
+    "shoppingCart": "Shopping Cart",
+    "checkout": "Checkout",
+    "wishlist": "Wishlist",
+    "compare": "Compare",
+    "contact": "Contact"
+  },
+  "shop": {
+    "sort": {
+      "default": "Default Sorting",
+      "lowToHigh": "Low to High",
+      "highToLow": "High to Low",
+      "newAdded": "New Added",
+      "onSale": "On Sale"
+    },
+    "filterButton": "Filter",
+    "filter": {
+      "close": "Close"
+    },
+    "showing": "Showing 1–{{showing}} of {{total}} results",
+    "noProductsFound": "No products found",
+    "status": {
+      "title": "Product Status",
+      "onSale": "On sale",
+      "inStock": "In Stock"
+    },
+    "categories": {
+      "title": "Categories",
+      "count": "{{count}} Products"
+    },
+    "colorFilter": {
+      "title": "Filter by Color"
+    },
+    "priceFilter": {
+      "title": "Price Filter",
+      "button": "Filter"
+    },
+    "brand": {
+      "title": "Popular Brands",
+      "noBrands": "No Brands found!"
+    },
+    "reset": {
+      "title": "Reset Filter",
+      "button": "Reset Filter"
+    },
+    "topRated": {
+      "title": "Top Rated Products"
+    }
+  },
+  "search": {
+    "sort": {
+      "default": "Sort By Price",
+      "lowToHigh": "Price low to high",
+      "highToLow": "Price high to low"
+    },
+    "loadMore": "Load More",
+    "noMatchPrefix": "Sorry, nothing matched",
+    "noMatchSuffix": "search terms"
+  },
+  "cart": {
+    "emptyTitle": "No Cart Items Found",
+    "continueShopping": "Continue Shopping",
+    "table": {
+      "product": "Product",
+      "price": "Price",
+      "quantity": "Quantity"
+    },
+    "clearCart": "Clear Cart",
+    "subtotal": "Subtotal",
+    "shipping": "Shipping",
+    "shippingOptions": {
+      "flatRate": "Flat rate",
+      "localPickup": "Local pickup",
+      "freeShipping": "Free shipping"
+    },
+    "total": "Total",
+    "proceedToCheckout": "Proceed to Checkout"
+  },
+  "wishlist": {
+    "emptyTitle": "No Wishlist Items Found",
+    "continueShopping": "Continue Shopping",
+    "table": {
+      "product": "Product",
+      "price": "Price",
+      "quantity": "Quantity",
+      "action": "Action"
+    },
+    "goToCart": "Go To Cart"
+  },
+  "compare": {
+    "emptyTitle": "No Compare Items Found",
+    "continueShopping": "Continue Shopping",
+    "table": {
+      "product": "Product",
+      "description": "Description",
+      "price": "Price",
+      "addToCart": "Add to cart",
+      "rating": "Rating",
+      "remove": "Remove"
+    },
+    "descriptionPlaceholder": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, distinctio."
+  },
+  "checkout": {
+    "emptyTitle": "No items found in cart to checkout",
+    "returnToShop": "Return to shop",
+    "login": {
+      "returningCustomer": "Returning customer?",
+      "clickHere": "Click here to login"
+    },
+    "coupon": {
+      "haveCoupon": "Have a coupon?",
+      "clickHere": "Click here to enter your code",
+      "codeLabel": "Coupon Code :",
+      "placeholder": "Coupon",
+      "apply": "Apply"
+    },
+    "billing": {
+      "title": "Billing Details",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "country": "Country",
+      "address": "Street address",
+      "city": "Town / City",
+      "zip": "Postcode ZIP",
+      "phone": "Phone",
+      "email": "Email address",
+      "orderNotes": "Order notes (optional)",
+      "placeholders": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "country": "United States (US)",
+        "address": "House number and street name",
+        "city": "City",
+        "zip": "Postcode ZIP",
+        "phone": "Phone",
+        "email": "Email",
+        "orderNotes": "Notes about your order, e.g. special notes for delivery."
+      },
+      "errors": {
+        "firstName": "First name is required!",
+        "lastName": "Last name is required!",
+        "country": "Country is required!",
+        "address": "Address is required!",
+        "city": "City is required!",
+        "zip": "Zip code is required!",
+        "phone": "Phone is required!",
+        "email": "Email is required!"
+      }
+    },
+    "order": {
+      "title": "Your Order",
+      "product": "Product",
+      "total": "Total",
+      "shipping": "Shipping",
+      "shippingToday": "Delivery: Today Cost",
+      "shippingDays": "Delivery: 7 Days Cost",
+      "subtotal": "Subtotal",
+      "shippingCost": "Shipping Cost",
+      "discount": "Discount",
+      "payment": {
+        "card": "Credit Card",
+        "cod": "Cash on Delivery"
+      },
+      "placeOrder": "Place Order",
+      "errors": {
+        "shipping": "Shipping Option is required!",
+        "payment": "Payment Option is required!"
+      }
+    }
+  },
+  "productDetails": {
+    "related": {
+      "preTitle": "Next day Products",
+      "title": "Related Products"
+    },
+    "tabs": {
+      "description": "Description",
+      "additionalInfo": "Additional information",
+      "reviews": "Reviews ({{count}})"
+    },
+    "reviews": {
+      "title": "Rating & Review",
+      "empty": "There are no reviews yet.",
+      "formTitle": "Review this product",
+      "note": "Your email address will not be published. Required fields are marked *"
+    },
+    "info": {
+      "sku": "SKU",
+      "category": "Category",
+      "tag": "Tag",
+      "share": "Share",
+      "returns": "30 days easy returns",
+      "dispatch": "Order yours before 2.30pm for same day dispatch",
+      "safeCheckoutLine1": "Guaranteed safe",
+      "safeCheckoutLine2": "& secure checkout"
+    },
+    "seeMore": "See more",
+    "seeLess": "See less",
+    "color": "Color",
+    "quantity": "Quantity",
+    "buyNow": "Buy Now",
+    "askQuestion": "Ask a question",
+    "flashSale": "Flash Sale end in",
+    "reviewForm": {
+      "yourRating": "Your Rating",
+      "labels": {
+        "comment": "Your Review",
+        "name": "Your Name",
+        "email": "Your Email"
+      },
+      "placeholders": {
+        "comment": "Write your review here...",
+        "name": "Your Name",
+        "email": "Your Email"
+      },
+      "errors": {
+        "comment": "Comment is required!",
+        "name": "Name is required!",
+        "email": "Email is required!"
+      },
+      "submit": "Submit",
+      "pleaseLogin": "Please login first"
+    }
+  },
+  "contact": {
+    "breadcrumbTitle": "Keep In Touch with Us",
+    "sendMessageTitle": "Sent A Message",
+    "findOnSocial": "Find on social media",
+    "form": {
+      "labels": {
+        "name": "Your Name",
+        "email": "Your Email",
+        "subject": "Subject",
+        "message": "Your Message",
+        "remember": "Terms and Conditions"
+      },
+      "placeholders": {
+        "name": "Your Name",
+        "email": "snueshop@gmail.com",
+        "subject": "Write your subject",
+        "message": "Write your message here..."
+      },
+      "errors": {
+        "name": "Name is required!",
+        "email": "Email is required!",
+        "subject": "Subject is required!",
+        "message": "Message is required!",
+        "remember": "You must agree to the terms and conditions to proceed."
+      },
+      "rememberText": "Save my name, email, and website in this browser for the next time I comment.",
+      "submit": "Send Message",
+      "success": "Message sent successfully!"
+    }
+  },
+  "product": {
+    "badge": {
+      "outOfStock": "Out of Stock"
+    },
+    "actions": {
+      "viewCart": "View Cart",
+      "addToCart": "Add to Cart",
+      "quickView": "Quick View",
+      "addToWishlist": "Add To Wishlist",
+      "addToCompare": "Add To Compare",
+      "remove": "Remove"
+    },
+    "status": {
+      "inStock": "In Stock",
+      "outOfStock": "Out of Stock"
+    },
+    "review": "Review",
+    "timer": {
+      "day": "Day",
+      "hours": "Hrs",
+      "minutes": "Min",
+      "seconds": "Sec"
+    }
+  }
+}

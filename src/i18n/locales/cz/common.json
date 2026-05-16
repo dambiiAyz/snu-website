@@ -1,0 +1,409 @@
+{
+  "language": {
+    "short": {
+      "en": "EN",
+      "mn": "MN",
+      "cz": "CZ"
+    },
+    "options": {
+      "en": "English (EN)",
+      "mn": "Mongol (MN)",
+      "cz": "China (CZ)"
+    }
+  },
+  "footer": {
+    "desc": "我们是由设计师和开发者组成的团队，致力于打造高质量的 WordPress。",
+    "myAccountTitle": "我的账户",
+    "informationTitle": "信息",
+    "talkToUsTitle": "联系我们",
+    "gotQuestions": "有问题吗？请致电我们",
+    "trackOrders": "订单跟踪",
+    "shipping": "配送",
+    "wishlist": "心愿单",
+    "myAccountLink": "我的账户",
+    "orderHistory": "订单历史",
+    "returns": "退货",
+    "ourStory": "我们的故事",
+    "careers": "招聘",
+    "privacyPolicy": "隐私政策",
+    "termsConditions": "条款与条件",
+    "latestNews": "最新消息",
+    "contactUs": "联系我们",
+    "subscribeTitle": "订阅。",
+    "subscribeDesc": "我们的对话才刚刚开始",
+    "emailPlaceholder": "输入您的邮箱",
+    "subscribeButton": "订阅",
+    "followUsOn": "关注我们",
+    "copyright": "© {{year}} 版权所有 | Snu Shop by {{by}} "
+  },
+  "errors": {
+    "generic": "发生错误",
+    "noProducts": "未找到商品！",
+    "noCategories": "未找到分类！"
+  },
+  "home": {
+    "slider": {
+      "preTitle": "起价",
+      "title1": "2023 最佳平板系列",
+      "title2": "2023 最佳笔记本系列",
+      "title3": "2023 最佳笔记本系列",
+      "subtitleText1": "专属优惠 ",
+      "subtitleText2": "本周",
+      "shopNow": "立即购买"
+    },
+    "banner": {
+      "saleAllStore": "全店 20% 折扣",
+      "saleSmall": "35% 折扣",
+      "shopNow": "立即购买",
+      "item1Line1": "智能手机 54333",
+      "item1Line2": "BLU G91 Pro 2022",
+      "item2Line1": "HyperX Cloud II",
+      "item2Line2": "无线"
+    },
+    "features": {
+      "deliveryTitle": "免费配送",
+      "deliverySubtitle": "所有商品",
+      "refundTitle": "退货与退款",
+      "refundSubtitle": "退款保障",
+      "discountTitle": "会员折扣",
+      "discountSubtitle": "满 ₮140.00 享优惠",
+      "supportTitle": "24/7 支持",
+      "supportSubtitle": "全天 24 小时联系我们"
+    },
+    "cta": {
+      "sale": "全店 20% 折扣",
+      "title": "订阅我们的新闻通讯",
+      "emailPlaceholder": "输入您的邮箱",
+      "subscribeButton": "订阅"
+    },
+    "productArea": {
+      "trendingTitle": "热门商品",
+      "tabs": {
+        "new": "新品",
+        "featured": "精选",
+        "topSellers": "热销"
+      }
+    },
+    "newArrivals": {
+      "title": "新品到货"
+    },
+    "offer": {
+      "title": "今日特惠",
+      "viewAll": "查看所有优惠"
+    },
+    "productBanner": {
+      "bgText": "平板",
+      "subtitle": "平板系列 2023",
+      "titleLine1": "Galaxy Tab S6 Lite",
+      "titleLine2": "Android 平板",
+      "shopNow": "立即购买"
+    },
+    "gadget": {
+      "categoriesLine1": "电子",
+      "categoriesLine2": "小工具",
+      "moreProducts": "更多商品",
+      "banner": {
+        "selectedLine1": "精选新品",
+        "selectedLine2": "商品",
+        "topRatedLine1": "高评分",
+        "topRatedLine2": "商品",
+        "price": "仅 ₮{{price}}"
+      }
+    },
+    "productSm": {
+      "discountTitle": "折扣商品",
+      "featuredTitle": "精选商品",
+      "sellingTitle": "热销商品"
+    },
+    "categories": {
+      "productCount": "{{count}} 件商品"
+    },
+    "blog": {
+      "title": "最新消息与文章",
+      "viewAll": "查看全部博客",
+      "readMore": "阅读更多"
+    }
+  },
+  "breadcrumb": {
+    "home": "首页",
+    "shopGrid": "商店",
+    "onlyCategories": "仅分类",
+    "searchProducts": "搜索商品",
+    "shoppingCart": "购物车",
+    "checkout": "结账",
+    "wishlist": "心愿单",
+    "compare": "对比",
+    "contact": "联系我们"
+  },
+  "shop": {
+    "sort": {
+      "default": "默认排序",
+      "lowToHigh": "价格从低到高",
+      "highToLow": "价格从高到低",
+      "newAdded": "最新上架",
+      "onSale": "促销中"
+    },
+    "filterButton": "筛选",
+    "filter": {
+      "close": "关闭"
+    },
+    "showing": "显示 1–{{showing}} / 共 {{total}} 条结果",
+    "noProductsFound": "未找到商品",
+    "status": {
+      "title": "商品状态",
+      "onSale": "促销",
+      "inStock": "有货"
+    },
+    "categories": {
+      "title": "分类",
+      "count": "{{count}} 件商品"
+    },
+    "colorFilter": {
+      "title": "按颜色筛选"
+    },
+    "priceFilter": {
+      "title": "价格筛选",
+      "button": "筛选"
+    },
+    "brand": {
+      "title": "热门品牌",
+      "noBrands": "未找到品牌！"
+    },
+    "reset": {
+      "title": "重置筛选",
+      "button": "重置筛选"
+    },
+    "topRated": {
+      "title": "高评分商品"
+    }
+  },
+  "search": {
+    "sort": {
+      "default": "按价格排序",
+      "lowToHigh": "价格从低到高",
+      "highToLow": "价格从高到低"
+    },
+    "loadMore": "加载更多",
+    "noMatchPrefix": "抱歉，没有匹配",
+    "noMatchSuffix": "的搜索结果"
+  },
+  "cart": {
+    "emptyTitle": "购物车为空",
+    "continueShopping": "继续购物",
+    "table": {
+      "product": "商品",
+      "price": "价格",
+      "quantity": "数量"
+    },
+    "clearCart": "清空购物车",
+    "subtotal": "小计",
+    "shipping": "配送",
+    "shippingOptions": {
+      "flatRate": "固定运费",
+      "localPickup": "自提",
+      "freeShipping": "免运费"
+    },
+    "total": "总计",
+    "proceedToCheckout": "去结账"
+  },
+  "wishlist": {
+    "emptyTitle": "心愿单为空",
+    "continueShopping": "继续购物",
+    "table": {
+      "product": "商品",
+      "price": "价格",
+      "quantity": "数量",
+      "action": "操作"
+    },
+    "goToCart": "去购物车"
+  },
+  "compare": {
+    "emptyTitle": "没有对比商品",
+    "continueShopping": "继续购物",
+    "table": {
+      "product": "商品",
+      "description": "描述",
+      "price": "价格",
+      "addToCart": "加入购物车",
+      "rating": "评分",
+      "remove": "移除"
+    },
+    "descriptionPlaceholder": "这里显示商品描述。"
+  },
+  "checkout": {
+    "emptyTitle": "购物车中没有可结账商品",
+    "returnToShop": "返回商店",
+    "login": {
+      "returningCustomer": "老客户？",
+      "clickHere": "点击此处登录"
+    },
+    "coupon": {
+      "haveCoupon": "有优惠券？",
+      "clickHere": "点击此处输入代码",
+      "codeLabel": "优惠码：",
+      "placeholder": "优惠券",
+      "apply": "应用"
+    },
+    "billing": {
+      "title": "账单信息",
+      "firstName": "名",
+      "lastName": "姓",
+      "country": "国家",
+      "address": "街道地址",
+      "city": "城市",
+      "zip": "邮编",
+      "phone": "电话",
+      "email": "邮箱地址",
+      "orderNotes": "订单备注（可选）",
+      "placeholders": {
+        "firstName": "名",
+        "lastName": "姓",
+        "country": "中国",
+        "address": "门牌号和街道名称",
+        "city": "城市",
+        "zip": "邮编",
+        "phone": "电话",
+        "email": "邮箱",
+        "orderNotes": "关于订单的备注，例如配送说明。"
+      },
+      "errors": {
+        "firstName": "名为必填项！",
+        "lastName": "姓为必填项！",
+        "country": "国家为必填项！",
+        "address": "地址为必填项！",
+        "city": "城市为必填项！",
+        "zip": "邮编为必填项！",
+        "phone": "电话为必填项！",
+        "email": "邮箱为必填项！"
+      }
+    },
+    "order": {
+      "title": "您的订单",
+      "product": "商品",
+      "total": "总计",
+      "shipping": "配送",
+      "shippingToday": "配送：今日费用",
+      "shippingDays": "配送：7天费用",
+      "subtotal": "小计",
+      "shippingCost": "运费",
+      "discount": "折扣",
+      "payment": {
+        "card": "信用卡",
+        "cod": "货到付款"
+      },
+      "placeOrder": "提交订单",
+      "errors": {
+        "shipping": "请选择配送方式！",
+        "payment": "请选择付款方式！"
+      }
+    }
+  },
+  "productDetails": {
+    "related": {
+      "preTitle": "次日达商品",
+      "title": "相关商品"
+    },
+    "tabs": {
+      "description": "描述",
+      "additionalInfo": "附加信息",
+      "reviews": "评价 ({{count}})"
+    },
+    "reviews": {
+      "title": "评分与评价",
+      "empty": "暂无评价。",
+      "formTitle": "评价此商品",
+      "note": "您的邮箱不会公开。标记 * 为必填项。"
+    },
+    "info": {
+      "sku": "SKU",
+      "category": "分类",
+      "tag": "标签",
+      "share": "分享",
+      "returns": "30天轻松退货",
+      "dispatch": "下午2:30前下单当天发货",
+      "safeCheckoutLine1": "安全保障",
+      "safeCheckoutLine2": "安全结账"
+    },
+    "seeMore": "查看更多",
+    "seeLess": "收起",
+    "color": "颜色",
+    "quantity": "数量",
+    "buyNow": "立即购买",
+    "askQuestion": "提问",
+    "flashSale": "限时抢购结束于",
+    "reviewForm": {
+      "yourRating": "您的评分",
+      "labels": {
+        "comment": "您的评价",
+        "name": "您的姓名",
+        "email": "您的邮箱"
+      },
+      "placeholders": {
+        "comment": "在此填写您的评价...",
+        "name": "您的姓名",
+        "email": "您的邮箱"
+      },
+      "errors": {
+        "comment": "评价为必填项！",
+        "name": "姓名为必填项！",
+        "email": "邮箱为必填项！"
+      },
+      "submit": "提交",
+      "pleaseLogin": "请先登录"
+    }
+  },
+  "contact": {
+    "breadcrumbTitle": "与我们保持联系",
+    "sendMessageTitle": "发送消息",
+    "findOnSocial": "在社交媒体上找到我们",
+    "form": {
+      "labels": {
+        "name": "您的姓名",
+        "email": "您的邮箱",
+        "subject": "主题",
+        "message": "您的留言",
+        "remember": "条款与条件"
+      },
+      "placeholders": {
+        "name": "您的姓名",
+        "email": "snueshop@gmail.com",
+        "subject": "填写主题",
+        "message": "在此填写您的留言..."
+      },
+      "errors": {
+        "name": "姓名为必填项！",
+        "email": "邮箱为必填项！",
+        "subject": "主题为必填项！",
+        "message": "留言为必填项！",
+        "remember": "请同意条款与条件。"
+      },
+      "rememberText": "下次评论时在此浏览器保存我的姓名、邮箱和网站。",
+      "submit": "发送消息",
+      "success": "消息已成功发送！"
+    }
+  },
+  "product": {
+    "badge": {
+      "outOfStock": "售罄"
+    },
+    "actions": {
+      "viewCart": "查看购物车",
+      "addToCart": "加入购物车",
+      "quickView": "快速查看",
+      "addToWishlist": "加入心愿单",
+      "addToCompare": "加入对比",
+      "remove": "移除"
+    },
+    "status": {
+      "inStock": "有货",
+      "outOfStock": "售罄"
+    },
+    "review": "评价",
+    "timer": {
+      "day": "天",
+      "hours": "时",
+      "minutes": "分",
+      "seconds": "秒"
+    }
+  }
+}
