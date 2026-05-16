@@ -1,15 +1,28 @@
 'use client';
-import React from "react";
+import React, { Suspense, useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 // internal
 import LoginShapes from "./login-shapes";
 import RegisterForm from "../forms/register-form";
 import GoogleSignUp from "./google-sign-up";
+import { setPendingReferralCode } from "@/utils/referralStorage";
 
+function ReferralQueryCapture() {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    const ref = searchParams.get("ref");
+    if (ref?.trim()) setPendingReferralCode(ref);
+  }, [searchParams]);
+  return null;
+}
 
 const RegisterArea = () => {
   return (
     <>
+      <Suspense fallback={null}>
+        <ReferralQueryCapture />
+      </Suspense>
       <section className="tp-login-area pb-140 p-relative z-index-1 fix">
         <LoginShapes />
         <div className="container">

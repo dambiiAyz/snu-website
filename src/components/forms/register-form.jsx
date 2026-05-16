@@ -1,20 +1,26 @@
 'use client';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useRouter,redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 // internal
 import { CloseEye, OpenEye } from "@/svg";
 import ErrorMsg from "../common/error-msg";
 import { notifyError, notifySuccess } from "@/utils/toast";
 import { useRegisterUserMutation } from "@/redux/features/auth/authApi";
+import {
+  clearPendingReferralCode,
+  getPendingReferralCode,
+  setPendingReferralCode,
+} from "@/utils/referralStorage";
 
 // schema
 const schema = Yup.object().shape({
   name: Yup.string().required().label("Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(6).label("Password"),
+  referralCode: Yup.string().trim().optional().label("Invite code"),
   remember: Yup.bool()
     .oneOf([true], "You must agree to the terms and conditions to proceed.")
     .label("Terms and Conditions"),
@@ -25,20 +31,38 @@ const RegisterForm = () => {
   const [registerUser, {}] = useRegisterUserMutation();
   const router = useRouter();
   // react hook form
-  const {register,handleSubmit,formState: { errors },reset} = useForm({
+  const {register,handleSubmit,formState: { errors },reset,setValue} = useForm({
     resolver: yupResolver(schema),
+    defaultValues: { referralCode: "" },
   });
+
+  const referralField = register("referralCode");
+
+  useEffect(() => {
+    const pending = getPendingReferralCode();
+    if (pending) setValue("referralCode", pending);
+  }, [setValue]);
+
   // on submit
   const onSubmit = (data) => {
-    registerUser({
+    const body = {
       name: data.name,
       email: data.email,
       password: data.password,
-    }).then((result) => {
+    };
+    const code = (data.referralCode || "").trim();
+    if (code) body.referralCode = code;
+
+    registerUser(body).then((result) => {
       if (result?.error) {
-        notifyError("Register Failed");
+        const msg =
+          result.error?.data?.error ||
+          result.error?.data?.message ||
+          "Register failed";
+        notifyError(msg);
       } else {
         notifySuccess(result?.data?.message);
+        clearPendingReferralCode();
         router.push('/checkout');
       }
     });
@@ -98,6 +122,26 @@ const RegisterForm = () => {
             </div>
           </div>
           <ErrorMsg msg={errors.password?.message} />
+        </div>
+        <div className="tp-login-input-box">
+          <div className="tp-login-input">
+            <input
+              {...referralField}
+              onChange={(e) => {
+                referralField.onChange(e);
+                setPendingReferralCode(e.target.value);
+              }}
+              id="referralCode"
+              name="referralCode"
+              type="text"
+              placeholder="Friend's invite code (optional)"
+              autoComplete="off"
+            />
+          </div>
+          <div className="tp-login-input-title">
+            <label htmlFor="referralCode">Invite code</label>
+          </div>
+          <ErrorMsg msg={errors.referralCode?.message} />
         </div>
       </div>
       <div className="tp-login-suggetions d-sm-flex align-items-center justify-content-between mb-20">

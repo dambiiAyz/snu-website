@@ -14,9 +14,10 @@ export const authApi = apiSlice.injectEndpoints({
     }),
     // signUpProvider
     signUpProvider: builder.mutation({
-      query: (token) => ({
+      query: ({ token, referralCode }) => ({
         url: `api/user/register/${token}`,
         method: "POST",
+        body: referralCode ? { referralCode } : {},
       }),
 
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
@@ -176,6 +177,24 @@ export const authApi = apiSlice.injectEndpoints({
         }
       },
     }),
+    referralInfo: builder.query({
+      query: () => ({
+        url: "api/user/referral-info",
+        method: "GET",
+      }),
+    }),
+    wallet: builder.query({
+      query: () => ({
+        url: "api/user/wallet",
+        method: "GET",
+      }),
+    }),
+    walletTransactions: builder.query({
+      query: ({ page = 1, limit = 20 } = {}) => ({
+        url: `api/user/wallet/transactions?page=${page}&limit=${limit}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -188,4 +207,7 @@ export const {
   useChangePasswordMutation,
   useUpdateProfileMutation,
   useSignUpProviderMutation,
+  useReferralInfoQuery,
+  useWalletQuery,
+  useWalletTransactionsQuery,
 } = authApi;

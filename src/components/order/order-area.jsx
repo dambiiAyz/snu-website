@@ -22,7 +22,7 @@ const OrderArea = ({ orderId }) => {
     content = <ErrorMsg msg="There was an error" />;
   }
   if (!isLoading && !isError) {
-    const { name, country, city, contact, invoice, createdAt, cart, shippingCost, discount, totalAmount,paymentMethod} = order.order;
+    const { name, country, city, contact, invoice, createdAt, cart, shippingCost, discount, totalAmount,paymentMethod, status: orderStatus} = order.order;
     content = (
       <>
         <section className="invoice__area pt-120 pb-120">
@@ -76,6 +76,13 @@ const OrderArea = ({ orderId }) => {
                       <p className="mb-0">
                         <strong>Date:</strong> {dayjs(createdAt).format("MMMM D, YYYY")}
                       </p>
+                      {orderStatus != null && String(orderStatus).trim() !== "" && (
+                        <p className="mb-0 mt-5">
+                          <strong>Status:</strong>{" "}
+                          {String(orderStatus).charAt(0).toUpperCase() +
+                            String(orderStatus).slice(1).toLowerCase()}
+                        </p>
+                      )}
                     </div>
                   </div>
                 </div>

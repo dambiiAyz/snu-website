@@ -2,25 +2,40 @@
 import React from "react";
 import Image from "next/image";
 import { GoogleLogin } from "@react-oauth/google";
-import { useRouter,redirect } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 // internal
 import google_icon from "@assets/img/icon/login/google.svg";
 import { useSignUpProviderMutation } from "@/redux/features/auth/authApi";
 import { notifyError, notifySuccess } from "@/utils/toast";
+import {
+  clearPendingReferralCode,
+  getPendingReferralCode,
+} from "@/utils/referralStorage";
 
 const GoogleSignUp = () => {
   const [signUpProvider, {}] = useSignUpProviderMutation();
   const router = useRouter();
+  const pathname = usePathname() || "";
+  const isRegisterRoute = pathname.includes("/register");
   // handleGoogleSignIn
   const handleGoogleSignIn = (user) => {
     if (user) {
-      signUpProvider(user?.credential).then((res) => {
+      const referralCode = isRegisterRoute
+        ? getPendingReferralCode() || undefined
+        : undefined;
+      signUpProvider({ token: user?.credential, referralCode }).then((res) => {
         if (res?.data) {
           notifySuccess("Login success!");
+          if (isRegisterRoute) clearPendingReferralCode();
           router.push('/checkout');
         } else {
           console.log("result error -->", res.error);
-          notifyError(res.error?.message);
+          notifyError(
+            res.error?.data?.error ||
+              res.error?.data?.message ||
+              res.error?.message ||
+              "Something went wrong"
+          );
         }
       });
     }

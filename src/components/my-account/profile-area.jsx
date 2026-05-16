@@ -6,6 +6,7 @@ import NavProfileTab from "./nav-profile-tab";
 import ProfileInfo from "./profile-info";
 import ChangePassword from "./change-password";
 import MyOrders from "./my-orders";
+import ReferralRewardsTab from "./referral-rewards-tab";
 import { useGetUserOrdersQuery } from "@/redux/features/order/orderApi";
 import Loader from "../loader/loader";
 import { useRouter } from "next/navigation";
@@ -60,6 +61,15 @@ const ProfileArea = () => {
                     aria-labelledby="nav-profile-tab"
                   >
                     <NavProfileTab orderData={orderData} />
+                  </div>
+
+                  <div
+                    className="tab-pane fade"
+                    id="nav-rewards"
+                    role="tabpanel"
+                    aria-labelledby="nav-rewards-tab"
+                  >
+                    <ReferralRewardsTab />
                   </div>
 
                   <div
