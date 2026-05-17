@@ -4,8 +4,16 @@ export const productApi = apiSlice.injectEndpoints({
   overrideExisting: true,
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: () => `/api/product/all`,
-      providesTags:['Products']
+      query: (arg) => {
+        const params = new URLSearchParams();
+        if (arg && typeof arg === "object") {
+          if (arg.companySlug) params.append("companySlug", String(arg.companySlug));
+          if (arg.companyId) params.append("companyId", String(arg.companyId));
+        }
+        const qs = params.toString();
+        return qs ? `/api/product/all?${qs}` : `/api/product/all`;
+      },
+      providesTags: ["Products"],
     }),
     getProductType: builder.query({
       query: ({ type, query }) => `/api/product/${type}?${query}`,

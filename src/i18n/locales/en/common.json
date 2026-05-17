@@ -177,6 +177,32 @@
       "title": "Top Rated Products"
     }
   },
+  "companies": {
+    "suppliedBy": "Supplied by",
+    "list": {
+      "documentTitle": "Companies | Snu Shop",
+      "title": "Companies",
+      "subtitle": "Companies",
+      "empty": "No companies match your search.",
+      "apiUnavailable": "Company directory is not available yet. Please try again later.",
+      "searchPlaceholder": "Search by name, slug, or email",
+      "goToShop": "Go to shop"
+    },
+    "detail": {
+      "documentTitle": "{{name}} | Snu Shop",
+      "notFound": "Company not found.",
+      "invalidSlug": "Invalid company link.",
+      "backToList": "All companies",
+      "productsHeading": "Products from this company",
+      "noProducts": "No products are listed for this company yet.",
+      "shopFiltered": "View these products in the shop"
+    },
+    "shopFilter": {
+      "label": "Company",
+      "all": "All companies",
+      "hint": "Filter is saved for your next visit. Share the URL with ?company=slug."
+    }
+  },
   "search": {
     "sort": {
       "default": "Sort By Price",

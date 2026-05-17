@@ -177,6 +177,32 @@
       "title": "高评分商品"
     }
   },
+  "companies": {
+    "suppliedBy": "供应商：",
+    "list": {
+      "documentTitle": "合作商家 | Snu Shop",
+      "title": "合作商家",
+      "subtitle": "合作商家",
+      "empty": "没有符合条件的商家。",
+      "apiUnavailable": "商家列表暂不可用，请稍后再试。",
+      "searchPlaceholder": "按名称、slug 或邮箱搜索",
+      "goToShop": "前往商店"
+    },
+    "detail": {
+      "documentTitle": "{{name}} | Snu Shop",
+      "notFound": "未找到该商家。",
+      "invalidSlug": "链接无效。",
+      "backToList": "全部商家",
+      "productsHeading": "该商家的商品",
+      "noProducts": "该商家暂无上架商品。",
+      "shopFiltered": "在商店中查看筛选结果"
+    },
+    "shopFilter": {
+      "label": "商家",
+      "all": "全部商家",
+      "hint": "筛选会记住以便下次访问。分享链接可使用 ?company=slug。"
+    }
+  },
   "search": {
     "sort": {
       "default": "按价格排序",

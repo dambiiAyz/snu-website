@@ -92,6 +92,12 @@ const menu_data = [
     ],
   },
   {
+    id: 33,
+    single_link: true,
+    title: 'Companies',
+    link: '/companies',
+  },
+  {
     id: 4,
     single_link: true,
     title: 'Coupons',
@@ -190,6 +196,12 @@ export const mobile_menu = [
       { title: 'Forgot Password', link: '/forgot' },
       { title: '404 Error', link: '/404' },
     ],
+  },
+  {
+    id: 33,
+    single_link: true,
+    title: 'Companies',
+    link: '/companies',
   },
   {
     id: 4,

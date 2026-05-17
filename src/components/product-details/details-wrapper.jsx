@@ -52,8 +52,22 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
   return (
     <div className="tp-product-details-wrapper">
       <div className="tp-product-details-category">
-        <span>{category.name}</span>
+        <span>{category?.name}</span>
       </div>
+      {(() => {
+        const c = productItem?.company;
+        const slug = c?.slug || productItem?.companySlug;
+        const name = c?.name || productItem?.companyName;
+        if (!slug || !name) return null;
+        return (
+          <div className="tp-product-details-vendor mb-10">
+            <span className="text-muted">{t("companies.suppliedBy")} </span>
+            <Link href={`/companies/${encodeURIComponent(String(slug))}`} className="tp-product-details-vendor-link">
+              {name}
+            </Link>
+          </div>
+        );
+      })()}
       <h3 className="tp-product-details-title">{title}</h3>
 
       {/* inventory details */}

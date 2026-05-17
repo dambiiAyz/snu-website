@@ -8,6 +8,7 @@ import shopFilterSlice from "./features/shop-filter-slice";
 import wishlistSlice from "./features/wishlist-slice";
 import couponSlice from "./features/coupon/couponSlice";
 import orderSlice from "./features/order/orderSlice";
+import "@/redux/features/companyApi";
 
 const store = configureStore({
   reducer: {
