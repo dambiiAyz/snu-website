@@ -1,6 +1,9 @@
+'use client';
+
 import dayjs from "dayjs";
 import Link from "next/link";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 function formatOrderStatus(status) {
   if (!status && status !== 0) return "";
@@ -21,11 +24,13 @@ function statusClass(status) {
 }
 
 const MyOrders = ({ orderData }) => {
+  const { t } = useTranslation("common");
   const order_items = orderData?.orders;
+  const empty = !order_items || order_items.length === 0;
+
   return (
     <div className="profile__ticket table-responsive">
-      {!order_items ||
-        (order_items?.length === 0 && (
+      {empty && (
           <div
             style={{ height: "210px" }}
             className="d-flex align-items-center justify-content-center"
@@ -35,18 +40,18 @@ const MyOrders = ({ orderData }) => {
                 style={{ fontSize: "30px" }}
                 className="fa-solid fa-cart-circle-xmark"
               ></i>
-              <p>You Have no order Yet!</p>
+              <p>{t("profile.orders.empty")}</p>
             </div>
           </div>
-        ))}
-      {order_items && order_items?.length > 0 && (
+        )}
+      {!empty && (
         <table className="table">
           <thead>
             <tr>
-              <th scope="col">Order Id</th>
-              <th scope="col">Order Time</th>
-              <th scope="col">Status</th>
-              <th scope="col">View</th>
+              <th scope="col">{t("profile.orders.columns.orderId")}</th>
+              <th scope="col">{t("profile.orders.columns.time")}</th>
+              <th scope="col">{t("profile.orders.columns.status")}</th>
+              <th scope="col">{t("profile.orders.columns.view")}</th>
             </tr>
           </thead>
           <tbody>
@@ -67,7 +72,7 @@ const MyOrders = ({ orderData }) => {
                 </td>
                 <td>
                   <Link href={`/order/${item._id}`} className="tp-logout-btn">
-                    Invoice
+                    {t("profile.orders.invoice")}
                   </Link>
                 </td>
               </tr>

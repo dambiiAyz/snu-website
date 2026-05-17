@@ -1,7 +1,10 @@
-import React from 'react';
+'use client';
+
+import React, { useMemo } from 'react';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 // internal
 import ErrorMsg from '../common/error-msg';
@@ -9,54 +12,71 @@ import { EmailTwo, LocationTwo, PhoneThree, UserThree } from '@/svg';
 import { useUpdateProfileMutation } from '@/redux/features/auth/authApi';
 import { notifyError, notifySuccess } from '@/utils/toast';
 
-// yup  schema
-const schema = Yup.object().shape({
-  name: Yup.string().required().label("Name"),
-  email: Yup.string().required().email().label("Email"),
-  phone: Yup.string().required().min(11).label("Phone"),
-  address: Yup.string().required().label("Address"),
-  bio: Yup.string().required().min(20).label("Bio"),
-});
-
 const ProfileInfo = () => {
+  const { t } = useTranslation("common");
   const { user } = useSelector((state) => state.auth);
 
+  const schema = useMemo(
+    () =>
+      Yup.object().shape({
+        name: Yup.string().required(t("profile.information.validation.nameRequired")),
+        email: Yup.string()
+          .required(t("profile.information.validation.emailRequired"))
+          .email(t("profile.information.validation.emailInvalid")),
+        phone: Yup.string()
+          .required(t("profile.information.validation.phoneRequired"))
+          .min(11, t("profile.information.validation.phoneMin")),
+        address: Yup.string().required(t("profile.information.validation.addressRequired")),
+        bio: Yup.string()
+          .required(t("profile.information.validation.bioRequired"))
+          .min(20, t("profile.information.validation.bioMin")),
+      }),
+    [t]
+  );
+
+  const resolver = useMemo(() => yupResolver(schema), [schema]);
+
   const [updateProfile, {}] = useUpdateProfileMutation();
-  // react hook form
-  const {register,handleSubmit,formState: { errors },reset} = useForm({
-    resolver: yupResolver(schema),
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
+    resolver,
   });
-  // on submit
+
   const onSubmit = (data) => {
     updateProfile({
-      id:user?._id,
-      name:data.name,
-      email:data.email,
-      phone:data.phone,
-      address:data.address,
-      bio:data.bio,
+      id: user?._id,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      address: data.address,
+      bio: data.bio,
     }).then((result) => {
-      if(result?.error){
+      if (result?.error) {
         notifyError(result?.error?.data?.message);
-      }
-      else {
+      } else {
         notifySuccess(result?.data?.message);
       }
-    })
+    });
     reset();
   };
+
   return (
     <div className="profile__info">
-      <h3 className="profile__info-title">Personal Details</h3>
+      <h3 className="profile__info-title">{t("profile.information.title")}</h3>
       <div className="profile__info-content">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row">
             <div className="col-xxl-6 col-md-6">
               <div className="profile__input-box">
                 <div className="profile__input">
-                  <input {...register("name", { required: `Name is required!` })} name='name' type="text" placeholder="Enter your username" defaultValue={user?.name} />
+                  <input
+                    {...register("name")}
+                    name="name"
+                    type="text"
+                    placeholder={t("profile.information.placeholders.name")}
+                    defaultValue={user?.name}
+                  />
                   <span>
-                    <UserThree/>
+                    <UserThree />
                   </span>
                   <ErrorMsg msg={errors.name?.message} />
                 </div>
@@ -66,9 +86,15 @@ const ProfileInfo = () => {
             <div className="col-xxl-6 col-md-6">
               <div className="profile__input-box">
                 <div className="profile__input">
-                  <input {...register("email", { required: `Email is required!` })} name='email' type="email" placeholder="Enter your email" defaultValue={user?.email} />
+                  <input
+                    {...register("email")}
+                    name="email"
+                    type="email"
+                    placeholder={t("profile.information.placeholders.email")}
+                    defaultValue={user?.email}
+                  />
                   <span>
-                    <EmailTwo/>
+                    <EmailTwo />
                   </span>
                   <ErrorMsg msg={errors.email?.message} />
                 </div>
@@ -78,9 +104,15 @@ const ProfileInfo = () => {
             <div className="col-xxl-12">
               <div className="profile__input-box">
                 <div className="profile__input">
-                  <input {...register("phone", { required: true })} name='phone' type="text" placeholder="Enter your number" defaultValue="0123 456 7889" />
+                  <input
+                    {...register("phone")}
+                    name="phone"
+                    type="text"
+                    placeholder={t("profile.information.placeholders.phone")}
+                    defaultValue={user?.phone ?? ""}
+                  />
                   <span>
-                    <PhoneThree/>
+                    <PhoneThree />
                   </span>
                   <ErrorMsg msg={errors.phone?.message} />
                 </div>
@@ -90,9 +122,15 @@ const ProfileInfo = () => {
             <div className="col-xxl-12">
               <div className="profile__input-box">
                 <div className="profile__input">
-                  <input {...register("address", { required: true })} name='address' type="text" placeholder="Enter your address" defaultValue="3304 Randall Drive" />
+                  <input
+                    {...register("address")}
+                    name="address"
+                    type="text"
+                    placeholder={t("profile.information.placeholders.address")}
+                    defaultValue={user?.address ?? ""}
+                  />
                   <span>
-                    <LocationTwo/>
+                    <LocationTwo />
                   </span>
                   <ErrorMsg msg={errors.address?.message} />
                 </div>
@@ -102,14 +140,19 @@ const ProfileInfo = () => {
             <div className="col-xxl-12">
               <div className="profile__input-box">
                 <div className="profile__input">
-                  <textarea {...register("bio", { required: true })} name='bio' placeholder="Enter your bio" defaultValue="Hi there, this is my bio..." />
+                  <textarea
+                    {...register("bio")}
+                    name="bio"
+                    placeholder={t("profile.information.placeholders.bio")}
+                    defaultValue={user?.bio ?? ""}
+                  />
                   <ErrorMsg msg={errors.bio?.message} />
                 </div>
               </div>
             </div>
             <div className="col-xxl-12">
               <div className="profile__btn">
-                <button type="submit" className="tp-btn">Update Profile</button>
+                <button type="submit" className="tp-btn">{t("profile.information.submit")}</button>
               </div>
             </div>
           </div>

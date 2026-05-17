@@ -1,45 +1,64 @@
-import React from "react";
+'use client';
+
+import React, { useMemo } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 // internal
 import ErrorMsg from "../common/error-msg";
 import { useChangePasswordMutation } from "@/redux/features/auth/authApi";
 import { notifyError, notifySuccess } from "@/utils/toast";
 
-// schema
-const schema = Yup.object().shape({
-  password: Yup.string().required().min(6).label("Password"),
-  newPassword: Yup.string().required().min(6).label("New Password"),
-  confirmPassword: Yup.string().oneOf(
-    [Yup.ref("newPassword"), null],
-    "Passwords must match"
-  ),
-});
-// schemaTwo
-const schemaTwo = Yup.object().shape({
-  newPassword: Yup.string().required().min(6).label("New Password"),
-  confirmPassword: Yup.string().oneOf(
-    [Yup.ref("newPassword"), null],
-    "Passwords must match"
-  ),
-});
-
 const ChangePassword = () => {
+  const { t } = useTranslation("common");
   const { user } = useSelector((state) => state.auth);
   const [changePassword, {}] = useChangePasswordMutation();
-  // react hook form
+
+  const schema = useMemo(
+    () =>
+      Yup.object().shape({
+        password: Yup.string()
+          .required(t("profile.password.validation.oldRequired"))
+          .min(6, t("profile.password.validation.min", { min: 6 })),
+        newPassword: Yup.string()
+          .required(t("profile.password.validation.newRequired"))
+          .min(6, t("profile.password.validation.min", { min: 6 })),
+        confirmPassword: Yup.string()
+          .required(t("profile.password.validation.confirmRequired"))
+          .oneOf([Yup.ref("newPassword")], t("profile.password.validation.confirmMatch")),
+      }),
+    [t]
+  );
+
+  const schemaTwo = useMemo(
+    () =>
+      Yup.object().shape({
+        newPassword: Yup.string()
+          .required(t("profile.password.validation.newRequired"))
+          .min(6, t("profile.password.validation.min", { min: 6 })),
+        confirmPassword: Yup.string()
+          .required(t("profile.password.validation.confirmRequired"))
+          .oneOf([Yup.ref("newPassword")], t("profile.password.validation.confirmMatch")),
+      }),
+    [t]
+  );
+
+  const resolver = useMemo(
+    () => yupResolver(user?.googleSignIn ? schemaTwo : schema),
+    [user?.googleSignIn, schema, schemaTwo]
+  );
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm({
-    resolver: yupResolver(user?.googleSignIn ? schemaTwo : schema),
+    resolver,
   });
 
-  // on submit
   const onSubmit = (data) => {
     changePassword({
       email: user?.email,
@@ -55,6 +74,7 @@ const ChangePassword = () => {
     });
     reset();
   };
+
   return (
     <div className="profile__password">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -64,16 +84,14 @@ const ChangePassword = () => {
               <div className="tp-profile-input-box">
                 <div className="tp-contact-input">
                   <input
-                    {...register("password", {
-                      required: `Password is required!`,
-                    })}
+                    {...register("password")}
                     name="password"
                     id="password"
                     type="password"
                   />
                 </div>
                 <div className="tp-profile-input-title">
-                  <label htmlFor="password">Old Password</label>
+                  <label htmlFor="password">{t("profile.password.labels.old")}</label>
                 </div>
                 <ErrorMsg msg={errors.password?.message} />
               </div>
@@ -83,16 +101,14 @@ const ChangePassword = () => {
             <div className="tp-profile-input-box">
               <div className="tp-profile-input">
                 <input
-                  {...register("newPassword", {
-                    required: `New Password is required!`,
-                  })}
+                  {...register("newPassword")}
                   name="newPassword"
                   id="newPassword"
                   type="password"
                 />
               </div>
               <div className="tp-profile-input-title">
-                <label htmlFor="new_pass">New Password</label>
+                <label htmlFor="newPassword">{t("profile.password.labels.new")}</label>
               </div>
               <ErrorMsg msg={errors.newPassword?.message} />
             </div>
@@ -108,7 +124,7 @@ const ChangePassword = () => {
                 />
               </div>
               <div className="tp-profile-input-title">
-                <label htmlFor="confirmPassword">Confirm Password</label>
+                <label htmlFor="confirmPassword">{t("profile.password.labels.confirm")}</label>
               </div>
               <ErrorMsg msg={errors.confirmPassword?.message} />
             </div>
@@ -116,7 +132,7 @@ const ChangePassword = () => {
           <div className="col-xxl-6 col-md-6">
             <div className="profile__btn">
               <button type="submit" className="tp-btn">
-                Update
+                {t("profile.password.submit")}
               </button>
             </div>
           </div>

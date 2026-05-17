@@ -382,6 +382,107 @@
       "success": "Зурвас амжилттай илгээгдлээ!"
     }
   },
+  "profile": {
+    "documentTitle": "Миний данс | Snu Shop",
+    "errors": {
+      "loadOrders": "Захиалгын мэдээлэл ачаалахад алдаа гарлаа."
+    },
+    "nav": {
+      "profile": "Профайл",
+      "rewards": "Урамшуулал",
+      "information": "Мэдээлэл",
+      "myOrders": "Миний захиалга",
+      "changePassword": "Нууц үг солих",
+      "logout": "Гарах"
+    },
+    "dashboard": {
+      "welcome": "Сайн байна уу, {{name}}",
+      "logout": "Гарах",
+      "totalOrders": "Нийт захиалга",
+      "pendingOrders": "Хүлээгдэж буй",
+      "processingOrders": "Боловсруулж буй",
+      "completedOrders": "Дууссан захиалга"
+    },
+    "information": {
+      "title": "Хувийн мэдээлэл",
+      "placeholders": {
+        "name": "Нэрээ оруулна уу",
+        "email": "Имэйлээ оруулна уу",
+        "phone": "Утасны дугаараа оруулна уу",
+        "address": "Хаягаа оруулна уу",
+        "bio": "Өөрийнхөө тухай (хамгийн багадаа 20 тэмдэгт)"
+      },
+      "submit": "Хадгалах",
+      "validation": {
+        "nameRequired": "Нэр заавал",
+        "emailRequired": "Имэйл заавал",
+        "emailInvalid": "Зөв имэйл оруулна уу",
+        "phoneRequired": "Утас заавал",
+        "phoneMin": "Утасны дугаар хамгийн багадаа 11 тэмдэгт",
+        "addressRequired": "Хаяг заавал",
+        "bioRequired": "Танилцуулга заавал",
+        "bioMin": "Танилцуулга хамгийн багадаа 20 тэмдэгт"
+      }
+    },
+    "password": {
+      "labels": {
+        "old": "Одоогийн нууц үг",
+        "new": "Шинэ нууц үг",
+        "confirm": "Нууц үг давтах"
+      },
+      "submit": "Шинэчлэх",
+      "validation": {
+        "oldRequired": "Одоогийн нууц үг заавал",
+        "newRequired": "Шинэ нууц үг заавал",
+        "confirmRequired": "Шинэ нууц үгээ давтана уу",
+        "confirmMatch": "Нууц үг таарахгүй байна",
+        "min": "Хамгийн багадаа {{min}} тэмдэгт"
+      }
+    },
+    "orders": {
+      "empty": "Танд одоогоор захиалга алга.",
+      "columns": {
+        "orderId": "Захиалгын дугаар",
+        "time": "Огноо",
+        "status": "Төлөв",
+        "view": "Үзэх"
+      },
+      "invoice": "Нэхэмжлэх"
+    },
+    "rewards": {
+      "errorTitle": "Урамшуулал",
+      "title": "Урилга ба түрийвч",
+      "intro": "Найзууддаа кодоо хуваалцаад бүртгүүлүүлнэ үү. Тэдний захиалга хүргэгдсэний дараа урамшуулал таны түрийвчинд орно.",
+      "referralCodeTitle": "Таны урилгын код",
+      "copyCode": "Код хуулах",
+      "copyLink": "Урилгын холбоос хуулах",
+      "qrTitle": "Бүртгэлийн QR",
+      "qrHint": "Утасны камераар уншуулбал таны урилгын холбоостой бүртгэлийн хуудас нээгдэнэ.",
+      "qrAria": "Бүртгэлийн урилгын QR код",
+      "invitedBy": "Таныг урьсан хэрэглэгчийн ID: {{id}}",
+      "walletTitle": "Түрийвч (МНТ)",
+      "balance": "Үлдэгдэл",
+      "totalEarned": "Нийт орлого",
+      "totalWithdrawn": "Нийт таталт",
+      "transactionsTitle": "Түрийвчийн гүйлгээ",
+      "noTransactions": "Гүйлгээ байхгүй байна.",
+      "columns": {
+        "date": "Огноо",
+        "type": "Төрөл",
+        "amount": "Дүн",
+        "balanceAfter": "Дараах үлдэгдэл",
+        "reference": "Лавлагаа"
+      },
+      "pagination": "{{max}}-ийн {{page}}-р хуудас (нийт {{total}})",
+      "previous": "Өмнөх",
+      "next": "Дараах",
+      "toast": {
+        "codeCopied": "Урилгын код хуулагдлаа",
+        "linkCopied": "Урилгын холбоос хуулагдлаа",
+        "copyFailed": "Clipboard руу хуулж чадсангүй"
+      }
+    }
+  },
   "product": {
     "badge": {
       "outOfStock": "Дууссан"

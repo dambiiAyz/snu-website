@@ -382,6 +382,107 @@
       "success": "Message sent successfully!"
     }
   },
+  "profile": {
+    "documentTitle": "My account | Snu Shop",
+    "errors": {
+      "loadOrders": "There was an error loading your orders."
+    },
+    "nav": {
+      "profile": "Profile",
+      "rewards": "Rewards",
+      "information": "Information",
+      "myOrders": "My orders",
+      "changePassword": "Change password",
+      "logout": "Logout"
+    },
+    "dashboard": {
+      "welcome": "Welcome, {{name}}",
+      "logout": "Logout",
+      "totalOrders": "Total orders",
+      "pendingOrders": "Pending orders",
+      "processingOrders": "Processing orders",
+      "completedOrders": "Completed orders"
+    },
+    "information": {
+      "title": "Personal details",
+      "placeholders": {
+        "name": "Enter your name",
+        "email": "Enter your email",
+        "phone": "Enter your phone number",
+        "address": "Enter your address",
+        "bio": "Tell us about yourself (at least 20 characters)"
+      },
+      "submit": "Update profile",
+      "validation": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Enter a valid email",
+        "phoneRequired": "Phone is required",
+        "phoneMin": "Phone must be at least 11 characters",
+        "addressRequired": "Address is required",
+        "bioRequired": "Bio is required",
+        "bioMin": "Bio must be at least 20 characters"
+      }
+    },
+    "password": {
+      "labels": {
+        "old": "Current password",
+        "new": "New password",
+        "confirm": "Confirm password"
+      },
+      "submit": "Update",
+      "validation": {
+        "oldRequired": "Current password is required",
+        "newRequired": "New password is required",
+        "confirmRequired": "Please confirm your new password",
+        "confirmMatch": "Passwords must match",
+        "min": "Must be at least {{min}} characters"
+      }
+    },
+    "orders": {
+      "empty": "You have no orders yet.",
+      "columns": {
+        "orderId": "Order ID",
+        "time": "Order time",
+        "status": "Status",
+        "view": "View"
+      },
+      "invoice": "Invoice"
+    },
+    "rewards": {
+      "errorTitle": "Rewards",
+      "title": "Referral & wallet",
+      "intro": "Share your code so friends can sign up. Referral rewards are added to your wallet when their orders are delivered.",
+      "referralCodeTitle": "Your referral code",
+      "copyCode": "Copy code",
+      "copyLink": "Copy invite link",
+      "qrTitle": "Sign-up QR",
+      "qrHint": "Scan with your phone camera to open the registration page with your referral link.",
+      "qrAria": "QR code for registration invite link",
+      "invitedBy": "You were referred by user ID: {{id}}",
+      "walletTitle": "Wallet (MNT)",
+      "balance": "Balance",
+      "totalEarned": "Total earned",
+      "totalWithdrawn": "Total withdrawn",
+      "transactionsTitle": "Wallet transactions",
+      "noTransactions": "No transactions yet.",
+      "columns": {
+        "date": "Date",
+        "type": "Type",
+        "amount": "Amount",
+        "balanceAfter": "Balance after",
+        "reference": "Reference"
+      },
+      "pagination": "Page {{page}} of {{max}} ({{total}} total)",
+      "previous": "Previous",
+      "next": "Next",
+      "toast": {
+        "codeCopied": "Referral code copied",
+        "linkCopied": "Invite link copied",
+        "copyFailed": "Could not copy to clipboard"
+      }
+    }
+  },
   "product": {
     "badge": {
       "outOfStock": "Out of Stock"

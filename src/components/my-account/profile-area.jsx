@@ -1,5 +1,6 @@
 'use client'
 import React,{ useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import ProfileNavTab from "./profile-nav-tab";
 import ProfileShape from "./profile-shape";
 import NavProfileTab from "./nav-profile-tab";
@@ -14,6 +15,7 @@ import ErrorMsg from "../common/error-msg";
 import Cookies from "js-cookie";
 
 const ProfileArea = () => {
+  const { t, i18n } = useTranslation("common");
   const router = useRouter();
   const { data: orderData, isError, isLoading, } = useGetUserOrdersQuery();
   useEffect(() => {
@@ -22,6 +24,10 @@ const ProfileArea = () => {
       router.push("/login");
     }
   }, [router]);
+
+  useEffect(() => {
+    document.title = t("profile.documentTitle");
+  }, [t, i18n.language]);
 
   let content = null;
   if (isLoading) {
@@ -37,7 +43,7 @@ const ProfileArea = () => {
       className="d-flex align-items-center justify-content-center"
       style={{ height: "100vh" }}
     >
-      <ErrorMsg msg="There was an error" />
+      <ErrorMsg msg={t("profile.errors.loadOrders")} />
     </div>
   }
   if (!isLoading && !isError) {

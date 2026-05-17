@@ -3,6 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { userLoggedOut } from "@/redux/features/auth/authSlice";
 
 function SingleNav({ active = false, id, title, icon }) {
@@ -26,6 +27,7 @@ function SingleNav({ active = false, id, title, icon }) {
 }
 
 const ProfileNavTab = () => {
+  const { t } = useTranslation("common");
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -44,27 +46,27 @@ const ProfileNavTab = () => {
         <SingleNav
           active={true}
           id="profile"
-          title="Profile"
+          title={t("profile.nav.profile")}
           icon="fa-regular fa-user-pen"
         />
         <SingleNav
           id="rewards"
-          title="Rewards"
+          title={t("profile.nav.rewards")}
           icon="fa-regular fa-gift"
         />
         <SingleNav
           id="information"
-          title="Information"
+          title={t("profile.nav.information")}
           icon="fa-regular fa-circle-info"
         />
         <SingleNav
           id="order"
-          title="My Orders"
+          title={t("profile.nav.myOrders")}
           icon="fa-light fa-clipboard-list-check"
         />
         <SingleNav
           id="password"
-          title="Change Password"
+          title={t("profile.nav.changePassword")}
           icon="fa-regular fa-lock"
         />
         <button
@@ -75,7 +77,7 @@ const ProfileNavTab = () => {
           <span>
             <i className="fa-regular fa-right-from-bracket"></i>
           </span>
-          Logout
+          {t("profile.nav.logout")}
         </button>
       </div>
     </nav>

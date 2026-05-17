@@ -382,6 +382,107 @@
       "success": "消息已成功发送！"
     }
   },
+  "profile": {
+    "documentTitle": "我的账户 | Snu Shop",
+    "errors": {
+      "loadOrders": "加载订单时出错。"
+    },
+    "nav": {
+      "profile": "个人资料",
+      "rewards": "奖励",
+      "information": "信息",
+      "myOrders": "我的订单",
+      "changePassword": "修改密码",
+      "logout": "退出登录"
+    },
+    "dashboard": {
+      "welcome": "欢迎，{{name}}",
+      "logout": "退出登录",
+      "totalOrders": "订单总数",
+      "pendingOrders": "待处理订单",
+      "processingOrders": "处理中订单",
+      "completedOrders": "已完成订单"
+    },
+    "information": {
+      "title": "个人资料",
+      "placeholders": {
+        "name": "请输入姓名",
+        "email": "请输入邮箱",
+        "phone": "请输入手机号码",
+        "address": "请输入地址",
+        "bio": "介绍一下自己（至少 20 个字符）"
+      },
+      "submit": "保存资料",
+      "validation": {
+        "nameRequired": "请输入姓名",
+        "emailRequired": "请输入邮箱",
+        "emailInvalid": "请输入有效的邮箱",
+        "phoneRequired": "请输入电话",
+        "phoneMin": "电话至少 11 位",
+        "addressRequired": "请输入地址",
+        "bioRequired": "请输入个人简介",
+        "bioMin": "个人简介至少 20 个字符"
+      }
+    },
+    "password": {
+      "labels": {
+        "old": "当前密码",
+        "new": "新密码",
+        "confirm": "确认新密码"
+      },
+      "submit": "更新",
+      "validation": {
+        "oldRequired": "请输入当前密码",
+        "newRequired": "请输入新密码",
+        "confirmRequired": "请再次输入新密码",
+        "confirmMatch": "两次输入的密码不一致",
+        "min": "至少 {{min}} 个字符"
+      }
+    },
+    "orders": {
+      "empty": "您还没有订单。",
+      "columns": {
+        "orderId": "订单编号",
+        "time": "下单时间",
+        "status": "状态",
+        "view": "查看"
+      },
+      "invoice": "发票"
+    },
+    "rewards": {
+      "errorTitle": "奖励",
+      "title": "推荐与钱包",
+      "intro": "分享您的推荐码邀请朋友注册。当他们订单送达后，推荐奖励会记入您的钱包。",
+      "referralCodeTitle": "您的推荐码",
+      "copyCode": "复制推荐码",
+      "copyLink": "复制邀请链接",
+      "qrTitle": "注册二维码",
+      "qrHint": "用手机相机扫描即可打开带推荐参数的注册页面。",
+      "qrAria": "注册邀请链接二维码",
+      "invitedBy": "推荐人用户 ID：{{id}}",
+      "walletTitle": "钱包（蒙图）",
+      "balance": "余额",
+      "totalEarned": "累计收益",
+      "totalWithdrawn": "累计提现",
+      "transactionsTitle": "钱包流水",
+      "noTransactions": "暂无流水记录。",
+      "columns": {
+        "date": "日期",
+        "type": "类型",
+        "amount": "金额",
+        "balanceAfter": "交易后余额",
+        "reference": "关联"
+      },
+      "pagination": "第 {{page}} / {{max}} 页（共 {{total}} 条）",
+      "previous": "上一页",
+      "next": "下一页",
+      "toast": {
+        "codeCopied": "推荐码已复制",
+        "linkCopied": "邀请链接已复制",
+        "copyFailed": "无法复制到剪贴板"
+      }
+    }
+  },
   "product": {
     "badge": {
       "outOfStock": "售罄"

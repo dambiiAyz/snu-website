@@ -1,11 +1,15 @@
+'use client';
+
 import React from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 // internal
 import { Box, DeliveryTwo, Processing, Truck } from "@/svg";
 import { userLoggedOut } from "@/redux/features/auth/authSlice";
 
 const NavProfileTab = ({ orderData }) => {
+  const { t } = useTranslation("common");
   const {user} = useSelector(state => state.auth)
   const dispatch = useDispatch();
   const router = useRouter();
@@ -21,15 +25,21 @@ const NavProfileTab = ({ orderData }) => {
           <div className="col-md-6">
             <div className="profile__main-inner d-flex flex-wrap align-items-center">
               <div className="profile__main-content">
-                <h4 className="profile__main-title">Welcome Mr. {user?.name}</h4>
+                <h4 className="profile__main-title">
+                  {t("profile.dashboard.welcome", { name: user?.name || "" })}
+                </h4>
               </div>
             </div>
           </div>
           <div className="col-md-6">
             <div className="profile__main-logout text-sm-end">
-              <a onClick={handleLogout} className="cursor-pointer tp-logout-btn">
-                Logout
-              </a>
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="cursor-pointer tp-logout-btn border-0 bg-transparent p-0"
+              >
+                {t("profile.dashboard.logout")}
+              </button>
             </div>
           </div>
         </div>
@@ -44,7 +54,7 @@ const NavProfileTab = ({ orderData }) => {
                   <Box />
                 </span>
               </div>
-              <h4 className="profile__main-info-title">Total Order</h4>
+              <h4 className="profile__main-info-title">{t("profile.dashboard.totalOrders")}</h4>
             </div>
           </div>
           <div className="col-md-3 col-sm-6">
@@ -55,7 +65,7 @@ const NavProfileTab = ({ orderData }) => {
                   <Processing />
                 </span>
               </div>
-              <h4 className="profile__main-info-title">Pending Order</h4>
+              <h4 className="profile__main-info-title">{t("profile.dashboard.pendingOrders")}</h4>
             </div>
           </div>
           <div className="col-md-3 col-sm-6">
@@ -68,7 +78,7 @@ const NavProfileTab = ({ orderData }) => {
                   <Truck />
                 </span>
               </div>
-              <h4 className="profile__main-info-title">Processing Order</h4>
+              <h4 className="profile__main-info-title">{t("profile.dashboard.processingOrders")}</h4>
             </div>
           </div>
           <div className="col-md-3 col-sm-6">
@@ -81,7 +91,7 @@ const NavProfileTab = ({ orderData }) => {
                   <DeliveryTwo />
                 </span>
               </div>
-              <h4 className="profile__main-info-title">Complete Order</h4>
+              <h4 className="profile__main-info-title">{t("profile.dashboard.completedOrders")}</h4>
             </div>
           </div>
         </div>
