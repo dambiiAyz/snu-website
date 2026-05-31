@@ -17,8 +17,10 @@ import CartMiniSidebar from "@/components/common/cart-mini-sidebar";
 import HeaderSearchForm from "@/components/forms/header-search-form";
 import { CartTwo, CategoryMenu, Compare, Menu, Phone, ShippingCar, Wishlist } from "@/svg";
 import { formatCurrency } from "@/utils/format-currency";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t } = useTranslation("common");
   const { wishlist } = useSelector((state) => state.wishlist);
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
   const [isCategoryActive, setIsCategoryActive] = useState(false);
@@ -38,7 +40,7 @@ const Header = () => {
                     <span>
                       <ShippingCar />
                     </span>
-                    <p>FREE Express Shipping On Orders {formatCurrency(570, 0)}+</p>
+                    <p>{t("header.freeShipping", { amount: formatCurrency(570, 0) })}</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -88,7 +90,7 @@ const Header = () => {
                         <span>
                           <CategoryMenu />
                         </span>
-                        All Departments
+                        {t("header.allDepartments")}
                       </button>
                       <nav className="tp-category-menu-content">
                         <HeaderCategory categoryType="electronics" isCategoryActive={isCategoryActive} />
@@ -111,7 +113,7 @@ const Header = () => {
                         </span>
                       </div>
                       <div className="tp-header-contact-content">
-                        <h5>Hotline:</h5>
+                        <h5>{t("header.hotline")}</h5>
                         <p>
                           <a href="tel:976-88545655">+(976) 8854 5655</a>
                         </p>

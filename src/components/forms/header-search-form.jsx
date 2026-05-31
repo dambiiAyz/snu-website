@@ -4,8 +4,10 @@ import { useState } from "react";
 import { Search } from "@/svg";
 import NiceSelect from "@/ui/nice-select";
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
+import { useTranslation } from "react-i18next";
 
 const HeaderSearchForm = () => {
+  const { t } = useTranslation("common");
   const { setSearchText, setCategory, handleSubmit, searchText } = useSearchFormSubmit();
 
   // selectHandle
@@ -21,21 +23,21 @@ const HeaderSearchForm = () => {
             onChange={(e) => setSearchText(e.target.value)}
             value={searchText}
             type="text"
-            placeholder="Search for Products..."
+            placeholder={t("header.searchPlaceholder")}
           />
         </div>
         <div className="tp-header-search-category">
           <NiceSelect
             options={[
-              { value: "Select Category", text: "Select Category" },
-              { value: "electronics", text: "electronics" },
-              { value: "fashion", text: "fashion" },
-              { value: "beauty", text: "beauty" },
-              { value: "jewelry", text: "jewelry" },
+              { value: "", text: t("header.selectCategory") },
+              { value: "electronics", text: t("header.categories.electronics") },
+              { value: "fashion", text: t("header.categories.fashion") },
+              { value: "beauty", text: t("header.categories.beauty") },
+              { value: "jewelry", text: t("header.categories.jewelry") },
             ]}
             defaultCurrent={0}
             onChange={selectCategoryHandle}
-            name="Select Category"
+            name={t("header.selectCategory")}
           />
         </div>
         <div className="tp-header-search-btn">

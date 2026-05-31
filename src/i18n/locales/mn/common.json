@@ -11,6 +11,29 @@
       "cz": "China (CZ)"
     }
   },
+  "header": {
+    "freeShipping": "{{amount}}+ захиалгад үнэгүй шуурхай хүргэлт",
+    "searchPlaceholder": "Бүтээгдэхүүн хайх...",
+    "selectCategory": "Ангилал сонгох",
+    "categories": {
+      "electronics": "Электроник",
+      "fashion": "Загвар",
+      "beauty": "Гоо сайхан",
+      "jewelry": "Үнэт эдлэл"
+    },
+    "hello": "Сайн байна уу,",
+    "helloName": "Сайн байна уу, {{name}}",
+    "signIn": "Нэвтрэх",
+    "yourAccount": "Таны бүртгэл",
+    "setting": "Тохиргоо",
+    "myProfile": "Миний профайл",
+    "wishlist": "Хүслийн жагсаалт",
+    "cart": "Сагс",
+    "login": "Нэвтрэх",
+    "logout": "Гарах",
+    "allDepartments": "Бүх ангилал",
+    "hotline": "Утас:"
+  },
   "footer": {
     "desc": "Бид өндөр чанартай WordPress бүтээдэг дизайнер, хөгжүүлэгчдийн баг.",
     "myAccountTitle": "Миний бүртгэл",

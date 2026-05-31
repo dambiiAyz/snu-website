@@ -89,6 +89,7 @@ function Currency({active,handleActive}) {
 
 // setting
 function ProfileSetting({active,handleActive}) {
+  const { t } = useTranslation("common");
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const router = useRouter();
@@ -104,21 +105,21 @@ function ProfileSetting({active,handleActive}) {
         className="tp-header-setting-toggle"
         id="tp-header-setting-toggle"
       >
-        Setting
+        {t("header.setting")}
       </span>
       <ul className={active === 'setting' ? "tp-setting-list-open" : ""}>
         <li>
-          <Link href="/profile">My Profile</Link>
+          <Link href="/profile">{t("header.myProfile")}</Link>
         </li>
         <li>
-          <Link href="/wishlist">Wishlist</Link>
+          <Link href="/wishlist">{t("header.wishlist")}</Link>
         </li>
         <li>
-          <Link href="/cart">Cart</Link>
+          <Link href="/cart">{t("header.cart")}</Link>
         </li>
         <li>
-          {!user?.name &&<Link href="/login" className="cursor-pointer">Login</Link>}
-          {user?.name &&<a onClick={handleLogout} className="cursor-pointer">Logout</a>}
+          {!user?.name &&<Link href="/login" className="cursor-pointer">{t("header.login")}</Link>}
+          {user?.name &&<a onClick={handleLogout} className="cursor-pointer">{t("header.logout")}</a>}
         </li>
       </ul>
     </div>

@@ -14,8 +14,10 @@ import CartMiniSidebar from '@/components/common/cart-mini-sidebar';
 import { CartTwo, Compare, Facebook, Menu, PhoneTwo, Wishlist, Search } from '@/svg';
 import useSearchFormSubmit from '@/hooks/use-search-form-submit';
 import OffCanvas from '@/components/common/off-canvas';
+import { useTranslation } from 'react-i18next';
 
 const HeaderTwo = ({ style_2 = false }) => {
+  const { t } = useTranslation("common");
   const { wishlist } = useSelector((state) => state.wishlist);
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
   const { setSearchText, handleSubmit, searchText } = useSearchFormSubmit();
@@ -82,7 +84,7 @@ const HeaderTwo = ({ style_2 = false }) => {
                             onChange={(e) => setSearchText(e.target.value)}
                             value={searchText}
                             type="text"
-                            placeholder="Search for Products..." />
+                            placeholder={t("header.searchPlaceholder")} />
                           <button type="submit">
                             <Search />
                           </button>

@@ -11,6 +11,29 @@
       "cz": "China (CZ)"
     }
   },
+  "header": {
+    "freeShipping": "订单满 {{amount}}+ 免费快速配送",
+    "searchPlaceholder": "搜索产品...",
+    "selectCategory": "选择分类",
+    "categories": {
+      "electronics": "电子产品",
+      "fashion": "时尚",
+      "beauty": "美妆",
+      "jewelry": "珠宝"
+    },
+    "hello": "您好,",
+    "helloName": "您好, {{name}}",
+    "signIn": "登录",
+    "yourAccount": "您的账户",
+    "setting": "设置",
+    "myProfile": "我的资料",
+    "wishlist": "愿望清单",
+    "cart": "购物车",
+    "login": "登录",
+    "logout": "退出",
+    "allDepartments": "所有分类",
+    "hotline": "热线:"
+  },
   "footer": {
     "desc": "我们是由设计师和开发者组成的团队，致力于打造高质量的 WordPress。",
     "myAccountTitle": "我的账户",

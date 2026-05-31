@@ -13,7 +13,7 @@ const useSearchFormSubmit = () => {
     if (searchText) {
       let route = `/search?searchText=${searchText}`;
 
-      if (category && category !== "Select Category") {
+      if (category) {
         route += `&productType=${category}`;
         setCategory("");
       }

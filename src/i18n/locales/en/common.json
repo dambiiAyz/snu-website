@@ -11,6 +11,29 @@
       "cz": "China (CZ)"
     }
   },
+  "header": {
+    "freeShipping": "FREE Express Shipping On Orders {{amount}}+",
+    "searchPlaceholder": "Search for Products...",
+    "selectCategory": "Select Category",
+    "categories": {
+      "electronics": "Electronics",
+      "fashion": "Fashion",
+      "beauty": "Beauty",
+      "jewelry": "Jewelry"
+    },
+    "hello": "Hello,",
+    "helloName": "Hello, {{name}}",
+    "signIn": "Sign In",
+    "yourAccount": "Your Account",
+    "setting": "Setting",
+    "myProfile": "My Profile",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "login": "Login",
+    "logout": "Logout",
+    "allDepartments": "All Departments",
+    "hotline": "Hotline:"
+  },
   "footer": {
     "desc": "We are a team of designers and developers that create high quality WordPress",
     "myAccountTitle": "My Account",
