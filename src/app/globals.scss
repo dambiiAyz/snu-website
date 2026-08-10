@@ -3,3 +3,113 @@
 @import "swiper/css/bundle";
 @import 'node_modules/react-modal-video/scss/modal-video.scss';
 @import '../../public/assets/scss/main.scss';
+
+.tp-checkout-qpay {
+  border: 1px solid #e5e7eb;
+  padding: 18px;
+  background: #f8fafc;
+}
+
+.tp-checkout-qpay-qr {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.tp-checkout-qpay-qr img {
+  width: min(220px, 100%);
+  height: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+}
+
+.tp-checkout-qpay-content h4 {
+  margin-bottom: 6px;
+  font-size: 18px;
+}
+
+.tp-checkout-qpay-content p {
+  margin-bottom: 12px;
+  color: #55585b;
+  line-height: 1.5;
+}
+
+.tp-checkout-qpay-link,
+.tp-checkout-qpay-check,
+.tp-checkout-qpay-bank {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d9d9d9;
+  background: #ffffff;
+  color: #010f1c;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+}
+
+.tp-checkout-qpay-link:hover,
+.tp-checkout-qpay-check:hover,
+.tp-checkout-qpay-bank:hover {
+  border-color: #010f1c;
+  color: #010f1c;
+}
+
+.tp-checkout-qpay-banks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tp-checkout-qpay-bank {
+  gap: 8px;
+}
+
+.tp-checkout-qpay-bank img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex: 0 0 24px;
+}
+
+.tp-checkout-qpay-bank span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tp-checkout-qpay-check {
+  width: 100%;
+  margin-top: 14px;
+}
+
+.tp-checkout-qpay-check:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.tp-header-main-language {
+  flex: 0 0 auto;
+}
+
+.tp-header-main-language .tp-header-top-menu {
+  gap: 0;
+}
+
+.tp-header-main-language .tp-header-top-menu-item {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.tp-header-main-language .tp-header-lang-toggle {
+  min-width: 48px;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #010f1c;
+  font-weight: 600;
+}

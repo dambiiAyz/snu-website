@@ -8,6 +8,7 @@ import useCartInfo from "@/hooks/use-cart-info";
 import { CartTwo, Compare, Menu, User, Wishlist } from "@/svg";
 import { openCartMini } from "@/redux/features/cartSlice";
 import { useTranslation } from "react-i18next";
+import HeaderTopRight from "./header-top-right";
 
 const HeaderMainRight = ({ setIsCanvasOpen }) => {
   const { t } = useTranslation("common");
@@ -86,6 +87,9 @@ const HeaderMainRight = ({ setIsCanvasOpen }) => {
             <Menu />
           </button>
         </div>
+      </div>
+      <div className="tp-header-main-language d-none d-md-flex align-items-center ml-25">
+        <HeaderTopRight showCurrency={false} showSetting={false} />
       </div>
     </div>
   );

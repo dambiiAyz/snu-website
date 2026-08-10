@@ -1,22 +1,15 @@
 'use client'
 import React from 'react';
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 // internal
 import ErrorMsg from '../common/error-msg';
 import { useGetProductTypeCategoryQuery } from '@/redux/features/categoryApi';
 import HomeCateLoader from '../loader/home/home-cate-loader';
+import ProductItem from '../products/electronics/product-item';
 
 const ElectronicCategory = () => {
   const { t } = useTranslation('common');
   const { data: categories, isLoading, isError } = useGetProductTypeCategoryQuery('electronics');
-  const router = useRouter()
-
-  // handle category route
-  const handleCategoryRoute = (title) => {
-    router.push(`/shop?category=${title.toLowerCase().replace("&", "").split(" ").join("-")}`)
-  }
   // decide what to render
   let content = null;
 
@@ -32,23 +25,18 @@ const ElectronicCategory = () => {
     content = <ErrorMsg msg={t('errors.noCategories')} />;
   }
   if (!isLoading && !isError && categories?.result?.length > 0) {
-    const category_items = categories.result;
+    const category_items = categories.result.filter((item) => item.products?.length > 0);
     content = category_items.map((item) => (
-      <div className="col" key={item._id}>
-        <div className="tp-product-category-item text-center mb-40">
-          <div className="tp-product-category-thumb fix">
-            <a className='cursor-pointer' onClick={() => handleCategoryRoute(item.parent)}>
-              <Image src={item.img} alt="product-category" width={76} height={98} />
-            </a>
-          </div>
-          <div className="tp-product-category-content">
-            <h3 className="tp-product-category-title">
-              <a className='cursor-pointer' onClick={() => handleCategoryRoute(item.parent)}>
-                {item.parent}
-              </a>
-            </h3>
-            <p>{t('home.categories.productCount', { count: item.products.length })}</p>
-          </div>
+      <div className="tp-home-category-products mb-45" key={item._id}>
+        <div className="tp-section-title-wrapper mb-25">
+          <h3 className="tp-section-title">{item.parent}</h3>
+        </div>
+        <div className="row">
+          {item.products?.slice(0, 20).map((product) => (
+            <div className="col-xl-3 col-lg-3 col-sm-6" key={product._id}>
+              <ProductItem product={product} />
+            </div>
+          ))}
         </div>
       </div>
     ))
@@ -56,9 +44,7 @@ const ElectronicCategory = () => {
   return (
     <section className="tp-product-category pt-60 pb-15">
       <div className="container">
-        <div className="row row-cols-xl-5 row-cols-lg-5 row-cols-md-4">
-          {content}
-        </div>
+        {content}
       </div>
     </section>
   );

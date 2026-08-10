@@ -338,9 +338,20 @@
       "discount": "折扣",
       "payment": {
         "card": "信用卡",
-        "cod": "货到付款"
+        "cod": "货到付款",
+        "qpay": "QPay"
       },
       "placeOrder": "提交订单",
+      "submitting": "提交中...",
+      "qpay": {
+        "title": "QPay 支付",
+        "description": "扫描二维码或选择银行应用完成支付。",
+        "qrAlt": "QPay 二维码",
+        "open": "打开 QPay 链接",
+        "create": "创建 QPay 发票",
+        "check": "检查支付",
+        "checking": "检查中..."
+      },
       "errors": {
         "shipping": "请选择配送方式！",
         "payment": "请选择付款方式！"

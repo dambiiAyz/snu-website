@@ -11,7 +11,12 @@ import useCartInfo from "./use-cart-info";
 import { set_shipping } from "@/redux/features/order/orderSlice";
 import { set_coupon } from "@/redux/features/coupon/couponSlice";
 import { notifyError, notifySuccess } from "@/utils/toast";
-import {useCreatePaymentIntentMutation,useSaveOrderMutation} from "@/redux/features/order/orderApi";
+import {
+  useCheckQpayInvoiceMutation,
+  useCreatePaymentIntentMutation,
+  useCreateQpayInvoiceMutation,
+  useSaveOrderMutation,
+} from "@/redux/features/order/orderApi";
 import { useGetOfferCouponsQuery } from "@/redux/features/coupon/couponApi";
 import { formatCurrency } from "@/utils/format-currency";
 
@@ -22,6 +27,9 @@ const useCheckoutSubmit = () => {
   const [saveOrder, {}] = useSaveOrderMutation();
   // createPaymentIntent
   const [createPaymentIntent, {}] = useCreatePaymentIntentMutation();
+  // qpay
+  const [createQpayInvoice, {}] = useCreateQpayInvoiceMutation();
+  const [checkQpayInvoice, {}] = useCheckQpayInvoiceMutation();
   // cart_products
   const { cart_products } = useSelector((state) => state.cart);
   // user
@@ -52,6 +60,9 @@ const useCheckoutSubmit = () => {
   const [clientSecret, setClientSecret] = useState("");
   // showCard
   const [showCard, setShowCard] = useState(false);
+  // qpay invoice
+  const [qpayPayment, setQpayPayment] = useState(null);
+  const [isCheckingQpay, setIsCheckingQpay] = useState(false);
   // coupon apply message
   const [couponApplyMsg,setCouponApplyMsg] = useState("");
 
@@ -60,9 +71,16 @@ const useCheckoutSubmit = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const {register,handleSubmit,setValue,formState: { errors }} = useForm();
+  const {register,handleSubmit,setValue,watch,formState: { errors }} = useForm();
+  const selectedPayment = watch("payment");
 
   let couponRef = useRef("");
+
+  const clearCheckoutStorage = () => {
+    localStorage.removeItem("cart_products");
+    localStorage.removeItem("couponInfo");
+    localStorage.removeItem("shipping_info");
+  };
 
   useEffect(() => {
     if (localStorage.getItem("couponInfo")) {
@@ -112,7 +130,7 @@ const useCheckoutSubmit = () => {
 
   // create payment intent
   useEffect(() => {
-    if (cartTotal) {
+    if (selectedPayment === "Card" && cartTotal) {
       createPaymentIntent({
         price: parseInt(cartTotal),
       })
@@ -123,7 +141,7 @@ const useCheckoutSubmit = () => {
           console.log(error);
         });
     }
-  }, [createPaymentIntent, cartTotal]);
+  }, [createPaymentIntent, cartTotal, selectedPayment]);
 
   // handleCouponCode
   const handleCouponCode = (e) => {
@@ -241,20 +259,79 @@ const useCheckoutSubmit = () => {
        return handlePaymentWithStripe(orderData);
       }
     }
+    if (data.payment === "QPay") {
+      try {
+        const savedOrder = await saveOrder({ ...orderInfo }).unwrap();
+        const order = savedOrder?.order || savedOrder?.data?.order;
+        const orderId = order?._id;
+
+        if (!orderId) {
+          notifyError("Order created, but order id was not returned.");
+          setIsCheckoutSubmit(false);
+          return;
+        }
+
+        const invoiceResult = await createQpayInvoice({ orderId }).unwrap();
+        const invoice = invoiceResult?.data?.invoice || invoiceResult?.invoice;
+
+        if (!invoice?.invoice_id) {
+          notifyError("QPay invoice could not be created.");
+          setIsCheckoutSubmit(false);
+          return;
+        }
+
+        setQpayPayment({
+          orderId,
+          invoice,
+          paid: false,
+        });
+        setIsCheckoutSubmit(false);
+        notifySuccess("QPay invoice created. Please complete your payment.");
+      } catch (err) {
+        notifyError(err?.data?.message || "QPay invoice could not be created.");
+        setIsCheckoutSubmit(false);
+      }
+      return;
+    }
+
     if (data.payment === 'COD') {
-      saveOrder({
-        ...orderInfo
-      }).then(res => {
-        if(res?.error){
-        }
-        else {
-          localStorage.removeItem("cart_products")
-          localStorage.removeItem("couponInfo");
-          setIsCheckoutSubmit(false)
-          notifySuccess("Your Order Confirmed!");
-          router.push(`/order/${res.data?.order?._id}`);
-        }
-      })
+      try {
+        const res = await saveOrder({ ...orderInfo }).unwrap();
+        const order = res?.order || res?.data?.order;
+        clearCheckoutStorage();
+        setIsCheckoutSubmit(false)
+        notifySuccess("Your Order Confirmed!");
+        router.push(`/order/${order?._id}`);
+      } catch (err) {
+        notifyError(err?.data?.message || "Order could not be confirmed.");
+        setIsCheckoutSubmit(false);
+      }
+    }
+  };
+
+  const handleCheckQpayPayment = async () => {
+    if (!qpayPayment?.invoice?.invoice_id) {
+      return;
+    }
+
+    setIsCheckingQpay(true);
+    try {
+      const result = await checkQpayInvoice(qpayPayment.invoice.invoice_id).unwrap();
+      const paid = result?.data?.paid === true;
+      const order = result?.data?.order || result?.order;
+
+      if (paid) {
+        setQpayPayment((prev) => ({ ...prev, paid: true }));
+        clearCheckoutStorage();
+        notifySuccess("Төлбөр амжилттай төлөгдлөө");
+        router.push(`/order/${order?._id || qpayPayment.orderId}`);
+      } else {
+        notifyError("Төлбөр хараахан баталгаажаагүй байна.");
+      }
+    } catch (err) {
+      notifyError(err?.data?.message || "Төлбөр шалгах үед алдаа гарлаа.");
+    } finally {
+      setIsCheckingQpay(false);
     }
   };
 
@@ -291,7 +368,7 @@ const useCheckoutSubmit = () => {
           if(result?.error){
           }
           else {
-            localStorage.removeItem("couponInfo");
+            clearCheckoutStorage();
             notifySuccess("Your Order Confirmed!");
             router.push(`/order/${result.data?.order?._id}`);
           }
@@ -317,6 +394,7 @@ const useCheckoutSubmit = () => {
     errors,
     cardError,
     submitHandler,
+    selectedPayment,
     stripe,
     handleSubmit,
     clientSecret,
@@ -326,6 +404,9 @@ const useCheckoutSubmit = () => {
     couponApplyMsg,
     showCard,
     setShowCard,
+    qpayPayment,
+    isCheckingQpay,
+    handleCheckQpayPayment,
   };
 };
 

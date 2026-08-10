@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+/* eslint-disable @next/next/no-img-element */
 import { CardElement } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
@@ -7,6 +7,11 @@ import { useTranslation } from "react-i18next";
 import useCartInfo from "@/hooks/use-cart-info";
 import ErrorMsg from "../common/error-msg";
 import { formatCurrency } from "@/utils/format-currency";
+
+const getQpayQrSrc = (qrImage) => {
+  if (!qrImage) return "";
+  return qrImage.startsWith("data:image") ? qrImage : `data:image/png;base64,${qrImage}`;
+};
 
 const CheckoutOrderArea = ({ checkoutData }) => {
   const { t } = useTranslation("common");
@@ -20,11 +25,19 @@ const CheckoutOrderArea = ({ checkoutData }) => {
     errors,
     showCard,
     setShowCard,
+    selectedPayment,
     shippingCost,
-    discountAmount
+    discountAmount,
+    qpayPayment,
+    isCheckingQpay,
+    handleCheckQpayPayment
   } = checkoutData;
   const { cart_products } = useSelector((state) => state.cart);
   const { total } = useCartInfo();
+  const qpayInvoice = qpayPayment?.invoice;
+  const disableSubmit =
+    isCheckoutSubmit || (selectedPayment === "Card" && (!stripe || !clientSecret));
+
   return (
     <div className="tp-checkout-place white-bg">
       <h3 className="tp-checkout-place-title">{t("checkout.order.title")}</h3>
@@ -165,15 +178,84 @@ const CheckoutOrderArea = ({ checkoutData }) => {
           <label htmlFor="cod">{t("checkout.order.payment.cod")}</label>
           <ErrorMsg msg={errors?.payment?.message} />
         </div>
+        <div className="tp-checkout-payment-item">
+          <input
+            {...register(`payment`, {
+              required: t("checkout.order.errors.payment"),
+            })}
+            onClick={() => setShowCard(false)}
+            type="radio"
+            id="qpay"
+            name="payment"
+            value="QPay"
+          />
+          <label htmlFor="qpay">{t("checkout.order.payment.qpay")}</label>
+          <ErrorMsg msg={errors?.payment?.message} />
+        </div>
       </div>
+
+      {qpayInvoice && (
+        <div className="tp-checkout-qpay mt-25">
+          <div className="tp-checkout-qpay-qr">
+            {qpayInvoice.qr_image && (
+              <img
+                src={getQpayQrSrc(qpayInvoice.qr_image)}
+                alt={t("checkout.order.qpay.qrAlt")}
+              />
+            )}
+          </div>
+          <div className="tp-checkout-qpay-content">
+            <h4>{t("checkout.order.qpay.title")}</h4>
+            <p>{t("checkout.order.qpay.description")}</p>
+            {qpayInvoice.qPay_shortUrl && (
+              <a
+                className="tp-checkout-qpay-link"
+                href={qpayInvoice.qPay_shortUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t("checkout.order.qpay.open")}
+              </a>
+            )}
+          </div>
+          {Array.isArray(qpayInvoice.urls) && qpayInvoice.urls.length > 0 && (
+            <div className="tp-checkout-qpay-banks">
+              {qpayInvoice.urls.map((bank) => (
+                <a
+                  key={`${bank.name}-${bank.link}`}
+                  href={bank.link}
+                  className="tp-checkout-qpay-bank"
+                >
+                  {bank.logo && <img src={bank.logo} alt={bank.name} />}
+                  <span>{bank.name}</span>
+                </a>
+              ))}
+            </div>
+          )}
+          <button
+            type="button"
+            className="tp-checkout-qpay-check"
+            onClick={handleCheckQpayPayment}
+            disabled={isCheckingQpay}
+          >
+            {isCheckingQpay
+              ? t("checkout.order.qpay.checking")
+              : t("checkout.order.qpay.check")}
+          </button>
+        </div>
+      )}
 
       <div className="tp-checkout-btn-wrapper">
         <button
           type="submit"
-          disabled={!stripe || isCheckoutSubmit}
+          disabled={disableSubmit}
           className="tp-checkout-btn w-100"
         >
-          {t("checkout.order.placeOrder")}
+          {isCheckoutSubmit
+            ? t("checkout.order.submitting")
+            : selectedPayment === "QPay"
+              ? t("checkout.order.qpay.create")
+              : t("checkout.order.placeOrder")}
         </button>
       </div>
     </div>

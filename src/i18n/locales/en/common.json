@@ -338,9 +338,20 @@
       "discount": "Discount",
       "payment": {
         "card": "Credit Card",
-        "cod": "Cash on Delivery"
+        "cod": "Cash on Delivery",
+        "qpay": "QPay"
       },
       "placeOrder": "Place Order",
+      "submitting": "Submitting...",
+      "qpay": {
+        "title": "QPay payment",
+        "description": "Scan the QR code or choose your bank app to complete the payment.",
+        "qrAlt": "QPay QR code",
+        "open": "Open QPay link",
+        "create": "Create QPay invoice",
+        "check": "Check payment",
+        "checking": "Checking..."
+      },
       "errors": {
         "shipping": "Shipping Option is required!",
         "payment": "Payment Option is required!"

@@ -126,7 +126,7 @@ function ProfileSetting({active,handleActive}) {
   );
 }
 
-const HeaderTopRight = () => {
+const HeaderTopRight = ({ showCurrency = true, showSetting = true }) => {
   const [active, setIsActive] = useState('');
   // handle active
   const handleActive = (type) => {
@@ -140,8 +140,8 @@ const HeaderTopRight = () => {
   return (
     <div className="tp-header-top-menu d-flex align-items-center justify-content-end">
       <Language active={active} handleActive={handleActive} />
-      <Currency active={active} handleActive={handleActive} />
-      <ProfileSetting active={active} handleActive={handleActive} />
+      {showCurrency && <Currency active={active} handleActive={handleActive} />}
+      {showSetting && <ProfileSetting active={active} handleActive={handleActive} />}
     </div>
   );
 };

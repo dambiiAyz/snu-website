@@ -30,19 +30,34 @@ export const authApi = apiSlice.injectEndpoints({
         body: data,
       }),
       invalidatesTags:['UserOrders'],
-      async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-        try {
-          const result = await queryFulfilled;
-          if (result) {
-            localStorage.removeItem("couponInfo");
-            localStorage.removeItem("cart_products");
-            localStorage.removeItem("shipping_info");
-          }
-        } catch (err) {
-          // do nothing
-        }
-      },
 
+    }),
+    // createQpayInvoice
+    createQpayInvoice: builder.mutation({
+      query: (data) => ({
+        url: "api/qpay/invoice",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["UserOrders"],
+    }),
+    // checkQpayInvoice
+    checkQpayInvoice: builder.mutation({
+      query: (invoiceId) => ({
+        url: `api/qpay/invoice/${invoiceId}/check`,
+        method: "POST",
+      }),
+      invalidatesTags: (result, error, arg) => [
+        "UserOrders",
+        { type: "UserOrder", id: result?.data?.order?._id },
+      ],
+    }),
+    // cancelQpayInvoice
+    cancelQpayInvoice: builder.mutation({
+      query: (invoiceId) => ({
+        url: `api/qpay/invoice/${invoiceId}`,
+        method: "DELETE",
+      }),
     }),
     // getUserOrders
     getUserOrders: builder.query({
@@ -61,6 +76,9 @@ export const authApi = apiSlice.injectEndpoints({
 
 export const {
   useCreatePaymentIntentMutation,
+  useCreateQpayInvoiceMutation,
+  useCheckQpayInvoiceMutation,
+  useCancelQpayInvoiceMutation,
   useSaveOrderMutation,
   useGetUserOrderByIdQuery,
   useGetUserOrdersQuery,
