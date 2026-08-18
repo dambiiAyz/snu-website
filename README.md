@@ -31,6 +31,8 @@ NEXT_PUBLIC_API_BASE_URL=
 
 For production, `NEXT_PUBLIC_API_BASE_URL` must be a deployed HTTPS API URL, not `localhost`.
 
+`NEXT_PUBLIC_GOOGLE_CLIENT_ID` must be a real Google OAuth **Web application** client ID ending with `.apps.googleusercontent.com`. Placeholder values such as `your google client id` will cause Google login to fail with `Error 401: invalid_client`.
+
 ## Build
 
 ```bash

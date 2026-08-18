@@ -7,6 +7,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js/pure';
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
+import { googleClientId } from "@/utils/google-auth-config";
 
 // stripePromise
 const stripeKey = process.env.NEXT_PUBLIC_STRIPE_KEY;
@@ -14,7 +15,7 @@ const stripePromise = stripeKey?.startsWith("pk_") ? loadStripe(stripeKey) : nul
 
 const Providers = ({ children }) => {
   return (
-    <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
+    <GoogleOAuthProvider clientId={googleClientId || "missing-google-client-id"}>
       <Provider store={store}>
         <I18nextProvider i18n={i18n}>
           <Elements stripe={stripePromise}>

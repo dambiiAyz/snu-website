@@ -11,12 +11,31 @@ import {
   clearPendingReferralCode,
   getPendingReferralCode,
 } from "@/utils/referralStorage";
+import { isGoogleClientConfigured } from "@/utils/google-auth-config";
 
 const GoogleSignUp = () => {
   const [signUpProvider, {}] = useSignUpProviderMutation();
   const router = useRouter();
   const pathname = usePathname() || "";
   const isRegisterRoute = pathname.includes("/register");
+
+  if (!isGoogleClientConfigured) {
+    return (
+      <button
+        type="button"
+        className="cursor-pointer"
+        onClick={() =>
+          notifyError(
+            "Google login тохируулаагүй байна. NEXT_PUBLIC_GOOGLE_CLIENT_ID утгаа шалгана уу."
+          )
+        }
+      >
+        <Image src={google_icon} alt="google_icon" />
+        Sign in with google
+      </button>
+    );
+  }
+
   // handleGoogleSignIn
   const handleGoogleSignIn = (user) => {
     if (user) {
@@ -53,6 +72,9 @@ const GoogleSignUp = () => {
         </a>
       )}
       onSuccess={handleGoogleSignIn}
+      onError={() =>
+        notifyError("Google login тохиргоо буруу байна. Client ID болон Authorized origin шалгана уу.")
+      }
       onFailure={(err) =>
         notifyError(err?.message || "Something wrong on your auth setup!")
       }
