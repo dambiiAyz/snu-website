@@ -61,12 +61,12 @@ const RegisterForm = () => {
           "Register failed";
         notifyError(msg);
       } else {
-        notifySuccess(result?.data?.message);
+        notifySuccess(result?.data?.message || "Please check your email to verify!");
         clearPendingReferralCode();
-        router.push('/checkout');
+        reset();
+        router.push('/login');
       }
     });
-    reset();
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
