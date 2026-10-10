@@ -517,7 +517,7 @@
       "copyCode": "复制推荐码",
       "copyLink": "复制邀请链接",
       "qrTitle": "注册二维码",
-      "qrHint": "用手机相机扫描即可打开带推荐参数的注册页面。",
+      "qrHint": "使用手机相机扫描即可打开 Snuu 应用或选择网页注册。",
       "qrAria": "注册邀请链接二维码",
       "invitedBy": "推荐人用户 ID：{{id}}",
       "walletTitle": "钱包（蒙图）",
@@ -542,6 +542,19 @@
         "copyFailed": "无法复制到剪贴板"
       }
     }
+  },
+  "invite": {
+    "title": "欢迎使用 Snuu",
+    "description": "打开 Snuu 应用，或在网页上使用此邀请码注册。",
+    "code": "邀请码：{{code}}",
+    "opening": "正在打开 Snuu 应用...",
+    "openApp": "打开 Snuu 应用",
+    "registerOnWeb": "在网页上注册",
+    "invalidCode": "邀请码无效或缺失。您可以在网页上不使用邀请码注册。",
+    "download": "尚未安装应用？立即下载",
+    "appStore": "从 App Store 下载",
+    "playStore": "从 Google Play 下载",
+    "afterInstall": "安装后返回此页面，点击“打开 Snuu 应用”。"
   },
   "product": {
     "badge": {

@@ -64,7 +64,7 @@ const ReferralRewardsTab = () => {
   const inviteLink = useMemo(() => {
     if (typeof window === "undefined" || !referral?.referralCode) return "";
     const origin = window.location.origin;
-    return `${origin}/register?ref=${encodeURIComponent(referral.referralCode)}`;
+    return `${origin}/invite?ref=${encodeURIComponent(referral.referralCode)}`;
   }, [referral?.referralCode]);
 
   const copyCode = async () => {

@@ -517,7 +517,7 @@
       "copyCode": "Copy code",
       "copyLink": "Copy invite link",
       "qrTitle": "Sign-up QR",
-      "qrHint": "Scan with your phone camera to open the registration page with your referral link.",
+      "qrHint": "Scan with your phone camera to open Snuu or choose web registration.",
       "qrAria": "QR code for registration invite link",
       "invitedBy": "You were referred by user ID: {{id}}",
       "walletTitle": "Wallet (MNT)",
@@ -542,6 +542,19 @@
         "copyFailed": "Could not copy to clipboard"
       }
     }
+  },
+  "invite": {
+    "title": "Welcome to Snuu",
+    "description": "Open the Snuu app or continue on the web to sign up with this invitation.",
+    "code": "Invite code: {{code}}",
+    "opening": "Opening the Snuu app...",
+    "openApp": "Open Snuu app",
+    "registerOnWeb": "Register on the web",
+    "invalidCode": "The invite code is missing or invalid. You can register on the web without a code.",
+    "download": "Don't have the app? Download it",
+    "appStore": "Download on the App Store",
+    "playStore": "Get it on Google Play",
+    "afterInstall": "After installing, return to this page and tap “Open Snuu app”."
   },
   "product": {
     "badge": {
