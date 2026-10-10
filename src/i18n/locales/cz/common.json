@@ -50,6 +50,7 @@
     "careers": "招聘",
     "privacyPolicy": "隐私政策",
     "termsConditions": "条款与条件",
+    "deleteAccount": "删除账户",
     "latestNews": "最新消息",
     "contactUs": "联系我们",
     "subscribeTitle": "订阅。",
@@ -453,6 +454,7 @@
       "information": "信息",
       "myOrders": "我的订单",
       "changePassword": "修改密码",
+      "checkout": "结算",
       "logout": "退出登录"
     },
     "dashboard": {
@@ -542,6 +544,21 @@
         "copyFailed": "无法复制到剪贴板"
       }
     }
+  },
+  "accountDeletion": {
+    "title": "申请删除账户",
+    "explanation": "请输入账户邮箱。我们会发送验证链接。这将提交审核申请，不会立即删除账户。",
+    "retention": "法律可能要求保留部分订单、付款和佣金记录。",
+    "emailLabel": "账户邮箱",
+    "request": "发送验证链接",
+    "emailSent": "如果该账户存在，我们会发送验证链接。请检查邮箱。",
+    "confirmPrompt": "确认申请删除账户及相关数据吗？",
+    "confirm": "确认删除申请",
+    "confirmed": "申请已记录。审核处理后我们会通过邮件通知您。",
+    "invalidLink": "链接无效或已过期。请重新申请。",
+    "error": "无法提交申请，请稍后重试。",
+    "processing": "请稍候...",
+    "contact": "联系客服"
   },
   "invite": {
     "title": "欢迎使用 Snuu",

@@ -50,6 +50,7 @@
     "careers": "Careers",
     "privacyPolicy": "Privacy Policy",
     "termsConditions": "Terms & Conditions",
+    "deleteAccount": "Delete account",
     "latestNews": "Latest News",
     "contactUs": "Contact Us",
     "subscribeTitle": "Subscribe.",
@@ -453,6 +454,7 @@
       "information": "Information",
       "myOrders": "My orders",
       "changePassword": "Change password",
+      "checkout": "Checkout",
       "logout": "Logout"
     },
     "dashboard": {
@@ -542,6 +544,21 @@
         "copyFailed": "Could not copy to clipboard"
       }
     }
+  },
+  "accountDeletion": {
+    "title": "Request account deletion",
+    "explanation": "Enter the email on your account. We will send a verification link. This creates a request for review; it does not delete your account immediately.",
+    "retention": "Some order, payment and commission records may need to be retained as required by law.",
+    "emailLabel": "Account email",
+    "request": "Send verification link",
+    "emailSent": "If this account exists, a verification link will be sent. Please check your email.",
+    "confirmPrompt": "Do you want to confirm your request to delete your account and associated data?",
+    "confirm": "Confirm deletion request",
+    "confirmed": "Your request has been recorded. We will email you after it has been reviewed and processed.",
+    "invalidLink": "This link is invalid or expired. Please request a new one.",
+    "error": "Could not submit the request. Please try again later.",
+    "processing": "Please wait...",
+    "contact": "Contact support"
   },
   "invite": {
     "title": "Welcome to Snuu",

@@ -4,6 +4,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import { useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
 import { userLoggedOut } from "@/redux/features/auth/authSlice";
 
 function SingleNav({ active = false, id, title, icon }) {
@@ -69,6 +70,12 @@ const ProfileNavTab = () => {
           title={t("profile.nav.changePassword")}
           icon="fa-regular fa-lock"
         />
+        <Link href="/checkout" className="nav-link">
+          <span>
+            <i className="fa-regular fa-credit-card"></i>
+          </span>
+          {t("profile.nav.checkout")}
+        </Link>
         <button
           type="button"
           className="nav-link tp-profile-logout-btn mt-20 w-100 text-start border-0 bg-transparent"

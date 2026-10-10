@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
-import { useRouter,redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 // internal
 import { CloseEye, OpenEye } from '@/svg';
@@ -26,7 +26,6 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -39,13 +38,12 @@ const LoginForm = () => {
       .then((data) => {
         if (data?.data) {
           notifySuccess("Login successfully");
-          router.push('/checkout' || "/");
+          router.push('/profile');
         }
         else {
           notifyError(data?.error?.data?.error)
         }
       })
-    reset();
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

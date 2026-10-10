@@ -43,7 +43,7 @@ const GoogleSignUp = () => {
         if (res?.data) {
           notifySuccess("Login success!");
           if (isRegisterRoute) clearPendingReferralCode();
-          router.push('/checkout');
+          router.push(isRegisterRoute ? '/checkout' : '/profile');
         } else {
           console.log("result error -->", res.error);
           notifyError(

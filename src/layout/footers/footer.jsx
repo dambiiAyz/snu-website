@@ -58,8 +58,9 @@ const Footer = ({ style_2 = false, style_3 = false,primary_style=false }) => {
                     <ul>
                       <li><a href="#">{t('footer.ourStory')}</a></li>
                       <li><a href="#">{t('footer.careers')}</a></li>
-                      <li><a href="#">{t('footer.privacyPolicy')}</a></li>
-                      <li><a href="#">{t('footer.termsConditions')}</a></li>
+                      <li><Link href="/privacy">{t('footer.privacyPolicy')}</Link></li>
+                      <li><Link href="/terms">{t('footer.termsConditions')}</Link></li>
+                      <li><Link href="/delete-account">{t('footer.deleteAccount')}</Link></li>
                       <li><a href="#">{t('footer.latestNews')}</a></li>
                       <li><a href="#">{t('footer.contactUs')}</a></li>
                     </ul>
