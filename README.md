@@ -4,7 +4,7 @@ Next.js e-commerce frontend prepared for Vercel deployment.
 
 ## Getting Started
 
-Use Node.js 20.11 or newer:
+Use Node.js 24:
 
 ```bash
 nvm use
