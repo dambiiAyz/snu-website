@@ -83,6 +83,19 @@ export default function AccountDeletionRequest() {
                   <button type="button" className="tp-btn" disabled={busy} onClick={confirm}>
                     {busy ? t("accountDeletion.processing") : t("accountDeletion.confirm")}
                   </button>
+                  {error && (
+                    <button
+                      type="button"
+                      className="tp-btn tp-btn-border"
+                      onClick={() => {
+                        setToken("");
+                        setError("");
+                        window.history.replaceState(null, "", window.location.pathname);
+                      }}
+                    >
+                      {t("accountDeletion.requestAgain")}
+                    </button>
+                  )}
                 </div>
               ) : !message ? (
                 <form onSubmit={submit} className="d-grid gap-3">
@@ -101,7 +114,11 @@ export default function AccountDeletionRequest() {
                     {busy ? t("accountDeletion.processing") : t("accountDeletion.request")}
                   </button>
                 </form>
-              ) : null}
+              ) : (
+                <button type="button" className="tp-btn tp-btn-border" onClick={() => setMessage("")}>
+                  {t("accountDeletion.requestAgain")}
+                </button>
+              )}
 
               <p className="mt-4 mb-0"><Link href="/contact">{t("accountDeletion.contact")}</Link></p>
             </div>
