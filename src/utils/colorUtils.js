@@ -35,9 +35,17 @@ export const colorMap = createColorMap();
  * @returns {string} Hex code of the color, or '#cccccc' if not found
  */
 export const getColorHex = (colorName) => {
-  if (!colorName) return '#cccccc';
+  if (typeof colorName !== 'string' || !colorName.trim()) return '#cccccc';
   
   const normalized = colorName.toLowerCase().trim();
+
+  // Product colors can already be stored as hex values in color.name.
+  if (/^#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/.test(normalized)) {
+    return normalized;
+  }
+  if (/^(?:[0-9a-f]{6}|[0-9a-f]{8})$/.test(normalized)) {
+    return `#${normalized}`;
+  }
   
   // Try exact match
   if (colorMap[normalized]) {
@@ -67,9 +75,11 @@ export const isLightColor = (hex) => {
   if (!hex || hex === '#cccccc') return false;
   
   try {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
+    const value = hex.replace(/^#/, '');
+    const [r, g, b] = value.length === 3 || value.length === 4
+      ? value.slice(0, 3).split('').map((channel) => parseInt(channel + channel, 16))
+      : [0, 2, 4].map((index) => parseInt(value.slice(index, index + 2), 16));
+    if ([r, g, b].some(Number.isNaN)) return false;
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
     return brightness > 200;
   } catch (error) {

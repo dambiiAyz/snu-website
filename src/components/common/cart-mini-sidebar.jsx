@@ -48,19 +48,20 @@ const handleCloseCartMini = () => {
                 <div key={i} className="cartmini__widget-item">
                   <div className="cartmini__thumb">
                     <Link href={`/product-details/${item._id}`}>
-                      <Image src={getDefaultVariant(item.imageURLs || [])?.img} width={70} height={60} alt="product img" />
+                      <Image src={item.selectedVariantImage || getDefaultVariant(item.imageURLs || [])?.img} width={70} height={60} alt="product img" />
                     </Link>
                   </div>
                   <div className="cartmini__content">
                     <h5 className="cartmini__title">
                       <Link href={`/product-details/${item._id}`}>{item.title}</Link>
                     </h5>
+                    {item.selectedSize && <span>{item.selectedSize}</span>}
                     <div className="cartmini__price-wrapper">
                       {item.discount > 0 ? <span className="cartmini__price">{formatCurrency((Number(item.price) - (Number(item.price) * Number(item.discount)) / 100))}</span> : <span className="cartmini__price">{formatCurrency(item.price)}</span>}
                       <span className="cartmini__quantity">{" "}x{item.orderQuantity}</span>
                     </div>
                   </div>
-                  <button onClick={() => handleRemovePrd({ title: item.title, id: item._id })} className="cartmini__del cursor-pointer"><i className="fa-regular fa-xmark"></i></button>
+                  <button onClick={() => handleRemovePrd({ title: item.title, id: item._id, selectedSize: item.selectedSize, selectedVariantImage: item.selectedVariantImage })} className="cartmini__del cursor-pointer"><i className="fa-regular fa-xmark"></i></button>
                 </div>
               ))}
             </div>}

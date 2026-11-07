@@ -52,9 +52,9 @@ const CheckoutOrderArea = ({ checkoutData }) => {
 
           {/*  item list */}
           {cart_products.map((item) => (
-            <li key={item._id} className="tp-order-info-list-desc">
+            <li key={`${item._id}-${item.selectedVariantImage || ''}-${item.selectedSize || ''}`} className="tp-order-info-list-desc">
               <p>
-                {item.title} <span> x {item.orderQuantity}</span>
+                {item.title}{item.selectedSize && ` (${t('productDetails.size')}: ${item.selectedSize})`} <span> x {item.orderQuantity}</span>
               </p>
               <span>{formatCurrency(item.price)}</span>
             </li>

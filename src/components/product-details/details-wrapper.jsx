@@ -16,14 +16,21 @@ import { handleModalClose } from '@/redux/features/productModalSlice';
 import { getColorHex, isLightColor } from '@/utils/colorUtils';
 import { formatCurrency } from '@/utils/format-currency';
 
+const getVariantColor = (color) =>
+  typeof color === 'string' ? color : color?.hex || color?.code || color?.name;
+
 const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBottom = false }) => {
   const { t } = useTranslation('common');
   const { sku, title, imageURLs, category, discount, price, status, reviews, tags, offerDate } = productItem || {};
   const [ratingVal, setRatingVal] = useState(0);
+  const [sizeSelection, setSizeSelection] = useState(null);
   const activeVariant = imageURLs?.find((item) => item.img === activeImg) || imageURLs?.[0];
   const activeSizes = Array.isArray(activeVariant?.sizes)
     ? activeVariant.sizes.filter((size) => typeof size === 'string' && size.trim())
     : [];
+  const selectedSize = sizeSelection?.image === activeVariant?.img && activeSizes.includes(sizeSelection.size)
+    ? sizeSelection.size
+    : activeSizes[0];
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -39,7 +46,9 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
 
   // handle add product
   const handleAddProduct = (prd) => {
-    dispatch(add_cart_product(prd));
+    dispatch(add_cart_product(activeSizes.length > 0
+      ? { ...prd, selectedSize, selectedVariantImage: activeVariant?.img }
+      : prd));
   };
 
   // handle wishlist product
@@ -111,12 +120,13 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
       </div>
 
       {/* variations */}
-      {imageURLs.some(item => item?.color && item?.color?.name) && <div className="tp-product-details-variation">
+      {imageURLs.some(item => getVariantColor(item?.color)) && <div className="tp-product-details-variation">
         <div className="tp-product-details-variation-item">
           <h4 className="tp-product-details-variation-title">{t('productDetails.color')} :</h4>
           <div className="tp-product-details-variation-list">
-            {imageURLs.map((item, i) => {
-              const backgroundColor = getColorHex(item.color?.name);
+            {imageURLs.filter((item) => getVariantColor(item?.color)).map((item, i) => {
+              const colorValue = getVariantColor(item.color);
+              const backgroundColor = getColorHex(colorValue);
               const needsBorder = isLightColor(backgroundColor);
               
               return (
@@ -125,17 +135,19 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
                   key={i} 
                   type="button"
                   className={`color tp-color-variation-btn ${item.img === activeImg ? "active" : ""}`}
-                  title={item.color?.name}
+                  title={item.color?.name || colorValue}
+                  aria-label={item.color?.name || colorValue}
                 >
                   <span
-                    data-bg-color={item.color?.name}
+                    data-bg-color={colorValue}
                     style={{ 
-                      backgroundColor: backgroundColor
+                      backgroundColor: backgroundColor,
+                      border: needsBorder ? '1px solid #d1d5db' : undefined
                     }}
                   ></span>
-                  {item.color && item.color.name && (
+                  {colorValue && (
                     <span className="tp-color-variation-tootltip">
-                      {item.color.name}
+                      {item.color?.name || colorValue}
                     </span>
                   )}
                 </button>
@@ -149,11 +161,17 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
         <div className="tp-product-details-variation mb-20">
           <div className="tp-product-details-variation-item">
             <h4 className="tp-product-details-variation-title">{t('productDetails.size')} :</h4>
-            <div className="d-flex flex-wrap gap-2">
+            <div className="tp-product-details-variation-list d-flex flex-wrap gap-2" role="group" aria-label={t('productDetails.size')}>
               {activeSizes.map((size, index) => (
-                <span key={size + '-' + index} className="d-inline-block border rounded px-3 py-1">
+                <button
+                  key={size + '-' + index}
+                  type="button"
+                  className={`tp-size-variation-btn ${selectedSize === size ? 'active' : ''}`}
+                  aria-pressed={selectedSize === size}
+                  onClick={() => setSizeSelection({ image: activeVariant?.img, size })}
+                >
                   {size}
-                </span>
+                </button>
               ))}
             </div>
           </div>

@@ -13,7 +13,9 @@ import { formatCurrency } from "@/utils/format-currency";
 const CartItem = ({product}) => {
   const { t } = useTranslation("common");
   const {_id,title,price, orderQuantity = 0 } = product || {};
-  const default_item = getDefaultVariant(product.imageURLs || []);
+  const default_item = product.selectedVariantImage
+    ? { img: product.selectedVariantImage }
+    : getDefaultVariant(product.imageURLs || []);
 
   const dispatch = useDispatch();
 
@@ -42,6 +44,7 @@ const CartItem = ({product}) => {
       {/* title */}
       <td className="tp-cart-title">
         <Link href={`/product-details/${_id}`}>{title}</Link>
+        {product.selectedSize && <div>{t('productDetails.size')}: {product.selectedSize}</div>}
       </td>
       {/* price */}
       <td className="tp-cart-price">
@@ -61,7 +64,7 @@ const CartItem = ({product}) => {
       </td>
       {/* action */}
       <td className="tp-cart-action">
-        <button onClick={()=> handleRemovePrd({title,id:_id})} className="tp-cart-action-btn">
+        <button onClick={()=> handleRemovePrd({title,id:_id,selectedSize:product.selectedSize,selectedVariantImage:product.selectedVariantImage})} className="tp-cart-action-btn">
           <Close />
           <span>{" "}{t("product.actions.remove")}</span>
         </button>

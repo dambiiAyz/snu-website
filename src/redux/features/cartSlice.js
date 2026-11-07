@@ -2,6 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getLocalStorage, setLocalStorage } from "@/utils/localstorage";
 import { notifyError, notifySuccess } from "@/utils/toast";
 
+const sameCartVariant = (item, payload) =>
+  item._id === payload._id &&
+  (item.selectedSize || null) === (payload.selectedSize || null) &&
+  (item.selectedVariantImage || null) === (payload.selectedVariantImage || null);
+
 const initialState = {
   cart_products: [],
   orderQuantity: 1,
@@ -13,7 +18,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     add_cart_product: (state, { payload }) => {
-      const isExist = state.cart_products.some((i) => i._id === payload._id);
+      const isExist = state.cart_products.some((i) => sameCartVariant(i, payload));
       if (!isExist) {
         const newItem = {
           ...payload,
@@ -23,7 +28,7 @@ export const cartSlice = createSlice({
         notifySuccess(`${state.orderQuantity} ${payload.title} added to cart`);
       } else {
         state.cart_products.map((item) => {
-          if (item._id === payload._id) {
+          if (sameCartVariant(item, payload)) {
             if (item.quantity >= item.orderQuantity + state.orderQuantity) {
               item.orderQuantity =
                 state.orderQuantity !== 1
@@ -51,7 +56,7 @@ export const cartSlice = createSlice({
     },
     quantityDecrement: (state, { payload }) => {
       state.cart_products.map((item) => {
-        if (item._id === payload._id) {
+        if (sameCartVariant(item, payload)) {
           if (item.orderQuantity > 1) {
             item.orderQuantity = item.orderQuantity - 1;
           }
@@ -62,7 +67,11 @@ export const cartSlice = createSlice({
     },
     remove_product: (state, { payload }) => {
       state.cart_products = state.cart_products.filter(
-        (item) => item._id !== payload.id
+        (item) => !sameCartVariant(item, {
+          _id: payload.id,
+          selectedSize: payload.selectedSize,
+          selectedVariantImage: payload.selectedVariantImage,
+        })
       );
       setLocalStorage("cart_products", state.cart_products);
       notifyError(`${payload.title} Remove from cart`);
