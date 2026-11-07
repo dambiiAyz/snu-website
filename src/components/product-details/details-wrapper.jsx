@@ -18,9 +18,12 @@ import { formatCurrency } from '@/utils/format-currency';
 
 const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBottom = false }) => {
   const { t } = useTranslation('common');
-  const { sku, title, imageURLs, category, description, discount, price, status, reviews, tags, offerDate } = productItem || {};
+  const { sku, title, imageURLs, category, discount, price, status, reviews, tags, offerDate } = productItem || {};
   const [ratingVal, setRatingVal] = useState(0);
-  const [textMore, setTextMore] = useState(false);
+  const activeVariant = imageURLs?.find((item) => item.img === activeImg) || imageURLs?.[0];
+  const activeSizes = Array.isArray(activeVariant?.sizes)
+    ? activeVariant.sizes.filter((size) => typeof size === 'string' && size.trim())
+    : [];
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -90,10 +93,6 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
           </div>
         </div>
       </div>
-      <p>{textMore ? description : `${description.substring(0, 100)}...`}
-        <span onClick={() => setTextMore(!textMore)}>{textMore ? t('productDetails.seeLess') : t('productDetails.seeMore')}</span>
-      </p>
-
       {/* price */}
       <div className="tp-product-details-price-wrapper mb-20">
         {discount > 0 ? (
@@ -145,6 +144,21 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
           </div>
         </div>
       </div>}
+
+      {activeSizes.length > 0 && (
+        <div className="tp-product-details-variation mb-20">
+          <div className="tp-product-details-variation-item">
+            <h4 className="tp-product-details-variation-title">{t('productDetails.size')} :</h4>
+            <div className="d-flex flex-wrap gap-2">
+              {activeSizes.map((size, index) => (
+                <span key={size + '-' + index} className="d-inline-block border rounded px-3 py-1">
+                  {size}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* if ProductDetailsCountdown true start */}
       {offerDate?.endDate && <ProductDetailsCountdown offerExpiryTime={offerDate?.endDate} />}
