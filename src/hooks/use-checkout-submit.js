@@ -19,6 +19,7 @@ import {
 } from "@/redux/features/order/orderApi";
 import { useGetOfferCouponsQuery } from "@/redux/features/coupon/couponApi";
 import { formatCurrency } from "@/utils/format-currency";
+import { getCheckoutDefaults } from "@/utils/checkout-defaults";
 
 const useCheckoutSubmit = () => {
   // offerCoupons
@@ -71,7 +72,7 @@ const useCheckoutSubmit = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const {register,handleSubmit,setValue,watch,formState: { errors }} = useForm();
+  const {register,handleSubmit,setValue,getValues,watch,formState: { errors, dirtyFields }} = useForm();
   const selectedPayment = watch("payment");
 
   let couponRef = useRef("");
@@ -197,22 +198,28 @@ const useCheckoutSubmit = () => {
     setShippingCost(value);
   };
 
-  //set values
+  // Fill available details without overwriting edits or another account's address.
   useEffect(() => {
-    setValue("firstName", shipping_info.firstName);
-    setValue("lastName", shipping_info.lastName);
-    setValue("country", shipping_info.country);
-    setValue("address", shipping_info.address);
-    setValue("city", shipping_info.city);
-    setValue("zipCode", shipping_info.zipCode);
-    setValue("contactNo", shipping_info.contactNo);
-    setValue("email", shipping_info.email);
-    setValue("orderNote", shipping_info.orderNote);
-  }, [user, setValue, shipping_info, router]);
+    if (!user) return;
+    let saved = shipping_info;
+    if (!saved || Object.keys(saved).length === 0) {
+      try {
+        saved = JSON.parse(localStorage.getItem("shipping_info") || "{}");
+      } catch {
+        saved = {};
+      }
+    }
+    const values = getCheckoutDefaults(user, saved || {});
+    Object.entries(values).forEach(([field, value]) => {
+      if (value && !dirtyFields[field] && !getValues(field)) {
+        setValue(field, value);
+      }
+    });
+  }, [user, shipping_info, setValue, getValues, dirtyFields]);
 
   // submitHandler
   const submitHandler = async (data) => {
-    dispatch(set_shipping(data));
+    dispatch(set_shipping({ ...data, userId: user?._id }));
     setIsCheckoutSubmit(true);
 
     let orderInfo = {

@@ -281,6 +281,8 @@
     "descriptionPlaceholder": "这里显示商品描述。"
   },
   "checkout": {
+    "backToCart": "返回购物车",
+    "detailsHint": "请核对配送信息并选择付款方式。",
     "emptyTitle": "购物车中没有可结账商品",
     "returnToShop": "返回商店",
     "login": {

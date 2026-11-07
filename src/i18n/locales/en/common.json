@@ -281,6 +281,8 @@
     "descriptionPlaceholder": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, distinctio."
   },
   "checkout": {
+    "backToCart": "Back to cart",
+    "detailsHint": "Review your delivery details and choose a payment method.",
     "emptyTitle": "No items found in cart to checkout",
     "returnToShop": "Return to shop",
     "login": {
