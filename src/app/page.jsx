@@ -16,11 +16,28 @@ import ProductSmArea from "@/components/products/electronics/product-sm-area";
 import Footer from "@/layout/footers/footer";
 
 
-export default function HomePage() {
+async function getHomeCovers() {
+  const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+  if (!baseUrl) return null;
+  try {
+    const response = await fetch(`${baseUrl.replace(/\/+$/, "")}/api/home-covers`, {
+      next: { revalidate: 60 },
+      signal: AbortSignal.timeout(4000),
+    });
+    if (!response.ok) return null;
+    const data = await response.json();
+    return Array.isArray(data.items) ? data.items : null;
+  } catch {
+    return null;
+  }
+}
+
+export default async function HomePage() {
+  const covers = await getHomeCovers();
   return (
     <Wrapper>
       <Header/>
-      <HomeHeroSlider/>
+      <HomeHeroSlider covers={covers} />
       <ElectronicCategory/>
       <FeatureArea/>
       <ProductArea/>
