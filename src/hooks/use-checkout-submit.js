@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 //internal import
+import { getActiveDiscount } from "@/utils/product-discount";
 import useCartInfo from "./use-cart-info";
 import { set_shipping } from "@/redux/features/order/orderSlice";
 import { set_coupon } from "@/redux/features/coupon/couponSlice";
@@ -232,7 +233,7 @@ const useCheckoutSubmit = () => {
       zipCode: data.zipCode,
       shippingOption: data.shippingOption,
       status: "Pending",
-      cart: cart_products,
+      cart: cart_products.map((item) => ({ ...item, discount: getActiveDiscount(item) })),
       paymentMethod: data.payment,
       subTotal: total,
       shippingCost: shippingCost,

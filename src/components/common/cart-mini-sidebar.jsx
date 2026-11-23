@@ -11,6 +11,14 @@ import { closeCartMini, remove_product } from '@/redux/features/cartSlice';
 import { getDefaultVariant } from '@/utils/utils';
 import { formatCurrency } from '@/utils/format-currency';
 
+import useActiveDiscount from '@/hooks/use-active-discount';
+
+function CartMiniPrice({ item }) {
+  const discount = useActiveDiscount(item);
+  const price = item.price - item.price * discount / 100;
+  return <span className="cartmini__price">{formatCurrency(price)}</span>;
+}
+
 const CartMiniSidebar = () => {
   const { cart_products, cartMiniOpen } = useSelector((state) => state.cart);
   const { total } = useCartInfo();
@@ -57,7 +65,7 @@ const handleCloseCartMini = () => {
                     </h5>
                     {item.selectedSize && <span>{item.selectedSize}</span>}
                     <div className="cartmini__price-wrapper">
-                      {item.discount > 0 ? <span className="cartmini__price">{formatCurrency((Number(item.price) - (Number(item.price) * Number(item.discount)) / 100))}</span> : <span className="cartmini__price">{formatCurrency(item.price)}</span>}
+                      <CartMiniPrice item={item} />
                       <span className="cartmini__quantity">{" "}x{item.orderQuantity}</span>
                     </div>
                   </div>

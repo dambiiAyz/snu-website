@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 // internal
 import { AskQuestion, CompareTwo, WishlistTwo } from '@/svg';
 import DetailsBottomInfo from './details-bottom-info';
+import useActiveDiscount from '@/hooks/use-active-discount';
 import ProductDetailsCountdown from './product-details-countdown';
 import ProductQuantity from './product-quantity';
 import { add_cart_product } from '@/redux/features/cartSlice';
@@ -21,7 +22,8 @@ const getVariantColor = (color) =>
 
 const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBottom = false }) => {
   const { t } = useTranslation('common');
-  const { sku, title, imageURLs, category, discount, price, status, reviews, tags, offerDate } = productItem || {};
+  const { sku, title, imageURLs, category, price, status, reviews, tags, offerDate } = productItem || {};
+  const discount = useActiveDiscount(productItem);
   const [ratingVal, setRatingVal] = useState(0);
   const [sizeSelection, setSizeSelection] = useState(null);
   const activeVariant = imageURLs?.find((item) => item.img === activeImg) || imageURLs?.[0];
@@ -179,7 +181,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
       )}
 
       {/* if ProductDetailsCountdown true start */}
-      {offerDate?.endDate && <ProductDetailsCountdown offerExpiryTime={offerDate?.endDate} />}
+      {discount > 0 && offerDate?.endDate && <ProductDetailsCountdown key={offerDate.endDate} offerExpiryTime={offerDate?.endDate} />}
       {/* if ProductDetailsCountdown true end */}
 
       {/* actions */}

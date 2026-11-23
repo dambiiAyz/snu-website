@@ -1,7 +1,6 @@
 'use client';
 import React from "react";
 import Timer from "../common/timer";
-import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 
 const ProductDetailsCountdown = ({ offerExpiryTime }) => {
@@ -14,24 +13,7 @@ const ProductDetailsCountdown = ({ offerExpiryTime }) => {
       <div
         className="tp-product-details-countdown-time"
       >
-        {dayjs().isAfter(offerExpiryTime) ? (
-          <ul>
-            <li>
-              <span>{0}</span> {t("product.timer.day")}
-            </li>
-            <li>
-              <span>{0}</span> {t("product.timer.hours")}
-            </li>
-            <li>
-              <span>{0}</span> {t("product.timer.minutes")}
-            </li>
-            <li>
-              <span>{0}</span> {t("product.timer.seconds")}
-            </li>
-          </ul>
-        ) : (
-          <Timer expiryTimestamp={new Date(offerExpiryTime)} />
-        )}
+        <Timer expiryTimestamp={new Date(offerExpiryTime)} />
       </div>
     </div>
   );

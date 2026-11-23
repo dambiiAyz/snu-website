@@ -14,7 +14,7 @@ import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 import { getDefaultVariant } from "@/utils/utils";
 import { formatCurrency } from "@/utils/format-currency";
 
-const ProductItem = ({ product, offer_style = false }) => {
+const ProductItem = ({ product, offer_style = false, squareThumbnail = false }) => {
   const { t } = useTranslation("common");
   const { _id,category, title, reviews, price, discount,status,offerDate } = product || {};
   const default_item = getDefaultVariant(product.imageURLs || []);
@@ -51,13 +51,12 @@ const ProductItem = ({ product, offer_style = false }) => {
           } tp-product-item transition-3`}
       >
         <div className="tp-product-thumb p-relative fix">
-          <Link href={`/product-details/${_id}`}>
+          <Link href={`/product-details/${_id}`} className={squareThumbnail ? "tp-trending-product-image" : undefined}>
             <Image
               src={default_item?.img}
-              width="0"
-              height="0"
-              sizes="100vw"
-              style={{ width: '100%', height: 'auto' }}
+              {...(squareThumbnail ? { fill: true } : { width: 0, height: 0 })}
+              sizes={squareThumbnail ? "(min-width: 992px) 25vw, (min-width: 576px) 50vw, 100vw" : "100vw"}
+              style={squareThumbnail ? { objectFit: 'contain' } : { width: '100%', height: 'auto' }}
               alt="product-electronic"
             />
 

@@ -45,7 +45,7 @@ const ProductArea = () => {
     const product_items = products.data;
     content = product_items.map((prd,i) => (
       <div key={i} className="col-xl-3 col-lg-3 col-sm-6">
-        <ProductItem product={prd}/>  
+        <ProductItem product={prd} squareThumbnail />
     </div>
     ))
   }
