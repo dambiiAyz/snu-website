@@ -16,6 +16,8 @@ const ShopArea = ({ shop_right = false, hidden_sidebar = false }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname() || "/shop";
+  const searchText = searchParams.get('searchText')?.trim().toLowerCase();
+  const productType = searchParams.get('productType')?.toLowerCase();
   const category = searchParams.get('category');
   const brand = searchParams.get('brand');
   const minPrice = searchParams.get('minPrice');
@@ -59,6 +61,10 @@ const ShopArea = ({ shop_right = false, hidden_sidebar = false }) => {
       setPriceValue([0, maxPriceVal]);
     }
   }, [isLoading, isError, products]);
+
+  useEffect(() => {
+    setCurrPage(1);
+  }, [searchText, productType]);
 
   const handleChanges = (val) => {
     setCurrPage(1);
@@ -118,6 +124,13 @@ const ShopArea = ({ shop_right = false, hidden_sidebar = false }) => {
       } else {
         product_items = products.data;
       }
+    }
+
+    if (searchText) {
+      product_items = product_items.filter((item) => item.title?.toLowerCase().includes(searchText));
+    }
+    if (productType) {
+      product_items = product_items.filter((item) => item.productType?.toLowerCase() === productType);
     }
 
     if (status) {

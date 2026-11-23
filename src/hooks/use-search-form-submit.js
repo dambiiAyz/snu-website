@@ -10,21 +10,16 @@ const useSearchFormSubmit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (searchText) {
-      let route = `/search?searchText=${searchText}`;
-
-      if (category) {
-        route += `&productType=${category}`;
-        setCategory("");
-      }
-
-      router.push(route);
-      setSearchText("");
+    const term = searchText.trim();
+    if (term) {
+      const params = new URLSearchParams({ searchText: term });
+      if (category) params.set("productType", category);
+      router.push(`/shop?${params.toString()}`);
     } else {
-      router.push(`/`);
-      setSearchText("");
-      setCategory("");
+      router.push("/");
     }
+    setSearchText("");
+    setCategory("");
   };
 
   return {

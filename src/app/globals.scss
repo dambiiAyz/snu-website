@@ -130,6 +130,28 @@
   background: #ffffff;
 }
 
+.tp-shop-items-wrapper {
+  .tp-product-list-thumb {
+    width: min(100%, 300px);
+    align-self: center;
+  }
+
+  .tp-product-thumb-2 > a,
+  .tp-product-list-thumb > a {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    height: auto;
+
+    > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
 .tp-trending-product-image {
   display: block;
   position: relative;
