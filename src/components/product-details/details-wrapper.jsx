@@ -216,7 +216,7 @@ const DetailsWrapper = ({ productItem, handleImageActive, activeImg, detailsBott
       </div>
       {/* product-details-action-sm end */}
 
-      {detailsBottom && <DetailsBottomInfo category={category?.name} sku={sku} tag={tags[0]} />}
+      {detailsBottom && <DetailsBottomInfo productId={productItem?._id} title={title} category={category?.name} sku={sku} tag={tags?.[0]} />}
     </div>
   );
 };

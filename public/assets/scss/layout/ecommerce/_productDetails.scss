@@ -457,7 +457,8 @@
             color: var(--tp-common-black);
             margin-right: 2px;
         }
-        & a{
+        & a,
+        & button{
             display: inline-block;
             width: 38px;
             height: 38px;
@@ -1315,7 +1316,8 @@
             }
             &-social{
                 margin-bottom: 28px;
-                & a{
+                & a,
+                & button{
                     border-radius: 0;
                     background-color: var(--tp-common-white);
                     border-color: var(--tp-common-white);
