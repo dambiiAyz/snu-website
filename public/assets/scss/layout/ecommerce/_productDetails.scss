@@ -1578,3 +1578,35 @@
         }
     }
 }
+
+.tp-product-related-slider {
+    .tp-product-thumb-3 > a {
+        display: block;
+        aspect-ratio: 282 / 320;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    .tp-related-slider-controls {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-bottom: 12px;
+
+        button {
+            width: 44px;
+            height: 44px;
+            border: 1px solid currentColor;
+            border-radius: 50%;
+
+            &:disabled {
+                opacity: .35;
+            }
+        }
+    }
+}

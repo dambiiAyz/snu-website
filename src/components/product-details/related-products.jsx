@@ -1,7 +1,7 @@
 'use client';
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Scrollbar, Navigation,Autoplay } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import { useTranslation } from "react-i18next";
 // internal
 import { useGetRelatedProductsQuery } from "@/redux/features/productApi";
@@ -62,6 +62,14 @@ const RelatedProducts = ({id}) => {
         modules={[Autoplay, Navigation]}
         className="tp-product-related-slider-active swiper-container mb-10"
       >
+        <div slot="container-start" className="tp-related-slider-controls">
+          <button type="button" className="tp-related-slider-button-prev" aria-label={t("productDetails.related.previous")}>
+            <i aria-hidden="true" className="fa-solid fa-chevron-left" />
+          </button>
+          <button type="button" className="tp-related-slider-button-next" aria-label={t("productDetails.related.next")}>
+            <i aria-hidden="true" className="fa-solid fa-chevron-right" />
+          </button>
+        </div>
         {product_items.map((item) => (
           <SwiperSlide key={item._id}>
             <ProductItem product={item} primary_style={true} />

@@ -363,6 +363,8 @@
   },
   "productDetails": {
     "related": {
+      "previous": "上一个商品",
+      "next": "下一个商品",
       "preTitle": "次日达商品",
       "title": "相关商品"
     },

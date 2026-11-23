@@ -363,6 +363,8 @@
   },
   "productDetails": {
     "related": {
+      "previous": "Previous product",
+      "next": "Next product",
       "preTitle": "Next day Products",
       "title": "Related Products"
     },
